@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-testing';
+  userIds: number[] = [1, 2, 3, 4, 5];
+
+  public selectedId: number|undefined;
+  onIdSelection(newId: any):void {
+    this.selectedId = + newId;
+  }
 }
