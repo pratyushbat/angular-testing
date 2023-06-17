@@ -32,4 +32,26 @@ public onNameChange(changedUser:any):void{
 }
 // user-c
 
+//DEPARTMENT
+public departments=[
+  {name:"CSE",depId:23},
+  {name:"EEE",depId:24},
+  {name:"IT",depId:26},
+  {name:"ME",depId:27}
+  
+];
+public selectedDept!:Department;
+onDepartmentChange(depIndex:string){
+this.selectedDept=this.departments[+depIndex]
+}
+//DEPARTMENT
+
+
+}
+
+
+export class Department{
+  name!: string;
+  depId!: number;
+  teachers?: string[];
 }
