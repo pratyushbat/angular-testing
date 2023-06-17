@@ -1,0 +1,7 @@
+Name:{{user['name']}}
+Id:{{user['id']}}
+
+<br>
+<input type="text" (change)="changeName(name.value); name.value='';" #name>
+<button (click)="resetName()">Reset Name</button>
+<hr>
