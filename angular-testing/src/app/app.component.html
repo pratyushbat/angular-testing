@@ -377,7 +377,8 @@
   <app-user [userId]="selectedId"></app-user> 
   Name: <input type="text" (keyup.enter)="0;" #name>
   dob: <input type="text" (keyup.enter)="0;" #dob>
-  <app-userc [namex]="name.value" [dob]="dob.value" [user]="user" *ngFor="let user of users" (nameEvt)="onNameChange($event)"></app-userc>
+  <!-- <app-userc [namex]="name.value" [dob]="dob.value" [user]="user" *ngFor="let user of users" (nameEvt)="onNameChange($event)"></app-userc> -->
+  <app-usercdec [namex]="name.value" [dob]="dob.value" [user]="user" *ngFor="let user of users" (nameEvt)="onNameChange($event)"></app-usercdec>
   <!-- Footer -->
 
 
@@ -395,8 +396,8 @@
         <label >Teacher:</label>
         <input type="text" (keyup.enter)="0;" #teacher>
         <!-- <app-department [department]="selectedDept" [teacher]="teacher.value"></app-department> -->
-        <app-departmentgs [department]="selectedDept" [teacher]="teacher.value"></app-departmentgs>
-        
+        <!-- <app-departmentgs [department]="selectedDept" [teacher]="teacher.value"></app-departmentgs> -->
+        <app-departmentgsdec [department]="selectedDept" [teacher]="teacher.value"></app-departmentgsdec> 
       </div>
     </div>
   </div>

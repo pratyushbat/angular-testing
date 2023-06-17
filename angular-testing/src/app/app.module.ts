@@ -8,6 +8,8 @@ import { OperationsComponent } from './pages/operations/operations.component';
 import { UsercComponent } from './pages/userc/userc.component';
 import { DepartmentComponent } from './pages/department/department.component';
 import { DepartmentgsComponent } from './pages/departmentgs/departmentgs.component';
+import { DepartmentgsdecComponent } from './pages/departmentgsdec/departmentgsdec.component';
+import { UsercdecComponent } from './pages/usercdec/usercdec.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { DepartmentgsComponent } from './pages/departmentgs/departmentgs.compone
     OperationsComponent,
     UsercComponent,
     DepartmentComponent,
-    DepartmentgsComponent
+    DepartmentgsComponent,
+    DepartmentgsdecComponent,
+    UsercdecComponent
   ],
   imports: [
     BrowserModule,
