@@ -14,7 +14,7 @@ export class DepartmentgsComponent {
   }
   set department(department:Department){
     this._department=department;
-    if(!this._department){
+    if(!this._department){ 
       return;
     }
     const depIndex = this.records.findIndex(dep => dep.depId === department.depId);
