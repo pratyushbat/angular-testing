@@ -1,4 +1,11 @@
-import { AfterContentInit, Component, ContentChild, ElementRef } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, Directive, ElementRef } from '@angular/core';
+@Directive({
+  selector:'input[type=file]'
+})
+export class FileInput{
+
+  constructor(public elemRef:ElementRef<HTMLInputElement>){}
+}
 
 @Component({
   selector: 'app-fileinput',
@@ -8,15 +15,17 @@ import { AfterContentInit, Component, ContentChild, ElementRef } from '@angular/
 export class FileinputComponent implements AfterContentInit {
   public previewSrc!: string;
   public file!: File;
-
-  @ContentChild("file") fileInputElement!: ElementRef<HTMLInputElement>;
+  //using templaete ref variable
+  // @ContentChild("file") fileInputElement!: ElementRef<HTMLInputElement>;
+  //using directive
+  @ContentChild(FileInput ) fileInputElement!: FileInput;
   constructor() {
 
   }
 
   ngAfterContentInit(): void {
     console.log('fileInputElement', this.fileInputElement);
-    const { nativeElement } = this.fileInputElement;
+    const { nativeElement } = this.fileInputElement.elemRef;
     console.log('nativeElement', nativeElement);
     nativeElement.style.display = "none";
     nativeElement.addEventListener('change', (evt) => {
@@ -31,14 +40,14 @@ export class FileinputComponent implements AfterContentInit {
     const file = inpRef.files?.item(0);
     this.file = file as File;
     const reader = new FileReader();
-    reader.addEventListener('load',(evt)=>{
-      this.previewSrc=evt.target?.result as string;
+    reader.addEventListener('load', (evt) => {
+      this.previewSrc = evt.target?.result as string;
     })
     reader.readAsDataURL(file as Blob);
   }
 
   openFileDialog(): void {
-    this.fileInputElement.nativeElement.click();
+    this.fileInputElement.elemRef.nativeElement.click();
   }
 
 }

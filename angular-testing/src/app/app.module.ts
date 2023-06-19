@@ -10,7 +10,7 @@ import { DepartmentComponent } from './pages/department/department.component';
 import { DepartmentgsComponent } from './pages/departmentgs/departmentgs.component';
 import { DepartmentgsdecComponent } from './pages/departmentgsdec/departmentgsdec.component';
 import { UsercdecComponent } from './pages/usercdec/usercdec.component';
-import { FileinputComponent } from './pages/fileinput/fileinput.component';
+import { FileInput, FileinputComponent } from './pages/fileinput/fileinput.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { FileinputComponent } from './pages/fileinput/fileinput.component';
     DepartmentgsComponent,
     DepartmentgsdecComponent,
     UsercdecComponent,
-    FileinputComponent
+    FileinputComponent,
+    FileInput
   ],
   imports: [
     BrowserModule,
