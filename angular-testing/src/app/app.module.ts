@@ -11,6 +11,8 @@ import { DepartmentgsComponent } from './pages/departmentgs/departmentgs.compone
 import { DepartmentgsdecComponent } from './pages/departmentgsdec/departmentgsdec.component';
 import { UsercdecComponent } from './pages/usercdec/usercdec.component';
 import { FileInput, FileinputComponent } from './pages/fileinput/fileinput.component';
+import { SliderComponent } from './pages/slider/slider.component';
+import { PhotoPreviewComponent } from './pages/photo-preview/photo-preview.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { FileInput, FileinputComponent } from './pages/fileinput/fileinput.compo
     DepartmentgsdecComponent,
     UsercdecComponent,
     FileinputComponent,
-    FileInput
+    FileInput,
+    SliderComponent,
+    PhotoPreviewComponent
   ],
   imports: [
     BrowserModule,
