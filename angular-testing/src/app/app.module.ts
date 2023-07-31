@@ -13,6 +13,8 @@ import { UsercdecComponent } from './pages/usercdec/usercdec.component';
 import { FileInput, FileinputComponent } from './pages/fileinput/fileinput.component';
 import { SliderComponent } from './pages/slider/slider.component';
 import { PhotoPreviewComponent } from './pages/photo-preview/photo-preview.component';
+import { PhotoListComponent } from './pages/multiplechildren/photo-list/photo-list.component';
+import { PhotoComponent } from './pages/multiplechildren/photo/photo.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { PhotoPreviewComponent } from './pages/photo-preview/photo-preview.compo
     FileinputComponent,
     FileInput,
     SliderComponent,
-    PhotoPreviewComponent
+    PhotoPreviewComponent,
+    PhotoListComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,

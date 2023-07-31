@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PhotoEvent } from './pages/multiplechildren/photo/photo.component';
 
 @Component({
   selector: 'app-root',
@@ -49,12 +50,17 @@ this.selectedDept=this.departments[+depIndex]
 
 //photo
 photos:Photo[]=[
-  {name:'Dog',description:'Labra',src:'https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U'},
-  {name:'Dog',description:'Labra',src:'https://fastly.picsum.photos/id/877/200/300.jpg?grayscale&hmac=FOZGF0rM7zWjUj5WdQNup5xu5aSmqElwkG5ZAk03Ny8'},
-  {name:'Dog',description:'Labra',src:'https://images.squarespace-cdn.com/content/v1/58d09402db29d660e4781a57/a0b4f155-d9ea-412e-979b-300dd47bbff3/Hogan_Josh_SmallHero_BigMultiverse_AntMan_D23_2022_7886.JPG'},
-  {name:'Dog',description:'Labra',src:'https://static01.nyt.com/images/2018/07/06/arts/06antman1-dressrefer/06antman1-dressrefer-superJumbo.jpg'}
+  {id :1,name:'Labra',description:'Labra',src:'https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U'},
+  {id :2,name:'SDD',description:'SDD',src:'https://fastly.picsum.photos/id/877/200/300.jpg?grayscale&hmac=FOZGF0rM7zWjUj5WdQNup5xu5aSmqElwkG5ZAk03Ny8'},
+  {id :3,name:'sdad',description:'sdad',src:'https://images.squarespace-cdn.com/content/v1/58d09402db29d660e4781a57/a0b4f155-d9ea-412e-979b-300dd47bbff3/Hogan_Josh_SmallHero_BigMultiverse_AntMan_D23_2022_7886.JPG'},
+  {id :4,name:'Labdasdra',description:'Labdasdra',src:'https://static01.nyt.com/images/2018/07/06/arts/06antman1-dressrefer/06antman1-dressrefer-superJumbo.jpg'},
+  {id :5,name:'zLabra',description:'zLabra',src:'https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U'}
 ];
 
+onRemoveEvent(evt:PhotoEvent){
+  this.photos=this.photos.filter(p=>p.id!=evt.photo.id);
+
+}
 }
 
 
@@ -65,6 +71,7 @@ export class Department{
 }
 
 export interface Photo{
+  id:number;
   name:string;
   src:string;
   description:string;
