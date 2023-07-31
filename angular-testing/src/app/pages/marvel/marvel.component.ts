@@ -20,6 +20,7 @@ export class MarvelComponent implements OnInit, AfterContentInit, AfterContentCh
   ngAfterContentInit(): void {  }
  
   ngAfterContentChecked(): void {
+    console.log('called')
      if (this.releasedMovie)
       return;
 
@@ -37,7 +38,7 @@ export class MarvelComponent implements OnInit, AfterContentInit, AfterContentCh
     console.log(url)
     fetch(url)
       .then((response) => response.json())
-      .then((json) => {this.movieComments=json ;console.log(json)});
+      .then((json) => {this.movieComments=json || [] ;console.log(json)});
   }
 
 }

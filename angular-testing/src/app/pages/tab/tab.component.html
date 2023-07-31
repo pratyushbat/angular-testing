@@ -1,0 +1,10 @@
+<section>
+    <header (click)="open()">
+        <ng-content select="h1"></ng-content>
+
+    </header>
+    <hr>
+    <div [class.hide] ="!isOpened" class="content">
+        <ng-content></ng-content>
+    </div>
+</section>

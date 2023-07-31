@@ -17,6 +17,8 @@ import { PhotoListComponent } from './pages/multiplechildren/photo-list/photo-li
 import { PhotoComponent } from './pages/multiplechildren/photo/photo.component';
 import { MarvelComponent } from './pages/marvel/marvel.component';
 import { MovieComponent } from './pages/movie/movie.component';
+import { TabComponent } from './pages/tab/tab.component';
+import { AccordianComponent } from './pages/accordian/accordian.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { MovieComponent } from './pages/movie/movie.component';
     PhotoListComponent,
     PhotoComponent,
     MarvelComponent,
-    MovieComponent
+    MovieComponent,
+    TabComponent,
+    AccordianComponent
   ],
   imports: [
     BrowserModule,
