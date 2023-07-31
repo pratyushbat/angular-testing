@@ -1,0 +1,6 @@
+<ng-content></ng-content>
+
+<div *ngIf="releasedMovie">
+    <h3>comments</h3>
+    <p *ngFor="let mn of movieComments">{{mn.email}}</p>
+</div>

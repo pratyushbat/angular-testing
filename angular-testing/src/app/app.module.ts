@@ -15,6 +15,8 @@ import { SliderComponent } from './pages/slider/slider.component';
 import { PhotoPreviewComponent } from './pages/photo-preview/photo-preview.component';
 import { PhotoListComponent } from './pages/multiplechildren/photo-list/photo-list.component';
 import { PhotoComponent } from './pages/multiplechildren/photo/photo.component';
+import { MarvelComponent } from './pages/marvel/marvel.component';
+import { MovieComponent } from './pages/movie/movie.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { PhotoComponent } from './pages/multiplechildren/photo/photo.component';
     SliderComponent,
     PhotoPreviewComponent,
     PhotoListComponent,
-    PhotoComponent
+    PhotoComponent,
+    MarvelComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,

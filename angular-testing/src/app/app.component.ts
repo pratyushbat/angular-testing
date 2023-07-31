@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PhotoEvent } from './pages/multiplechildren/photo/photo.component';
+import { Movie } from './interfaces/Movie';
 
 @Component({
   selector: 'app-root',
@@ -61,6 +62,10 @@ onRemoveEvent(evt:PhotoEvent){
   this.photos=this.photos.filter(p=>p.id!=evt.photo.id);
 
 }
+
+
+//movie
+movie:Movie = {id:1,name:"The Gaurs",isReleases:false};
 }
 
 
