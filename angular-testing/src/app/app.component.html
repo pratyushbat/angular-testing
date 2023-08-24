@@ -332,11 +332,11 @@
   <!-- Highlight Card -->
   <div class="card highlight-card card-small">
 
- 
+
 
     <span>{{ title }} app is running!</span>
 
- 
+
 
   </div>
 
@@ -351,18 +351,19 @@
       <option [value]="id" *ngFor="let id of userIds">{{id}}</option>
     </select>
 
-  
-    
+
+
   </div>
-  <app-user [userId]="selectedId"></app-user> 
+  <app-user [userId]="selectedId"></app-user>
   Name: <input type="text" (keyup.enter)="0;" #name>
   dob: <input type="text" (keyup.enter)="0;" #dob>
-  <!-- <app-userc [namex]="name.value" [dob]="dob.value" [user]="user" *ngFor="let user of users" (nameEvt)="onNameChange($event)"></app-userc> -->
-  <app-usercdec [namex]="name.value" [dob]="dob.value" [user]="user" *ngFor="let user of users" (nameEvt)="onNameChange($event)"></app-usercdec>
+  <!-- <app-userc [namex]="name.value" [dob]="dob.value" [user]="user" *ngFor="let user of user ns" (nameEvt)="onNameChange($event)"></app-userc> -->
+  <app-usercdec [namex]="name.value" [dob]="dob.value" [user]="user" *ngFor="let user of users "
+    (nameEvt)="onNameChange($event)"></app-usercdec>
   <!-- Footer -->
 
 
-..................................................................................................
+  ..................................................................................................
   <!-- department -->
   <div class="row">
     <div class="col-md-9">
@@ -373,25 +374,25 @@
     </div>
     <div class="col-md-3">
       <div>
-        <label >Teacher:</label>
+        <label>Teacher:</label>
         <input type="text" (keyup.enter)="0;" #teacher>
         <!-- <app-department [department]="selectedDept" [teacher]="teacher.value"></app-department> -->
         <!-- <app-departmentgs [department]="selectedDept" [teacher]="teacher.value"></app-departmentgs> -->
-        <app-departmentgsdec [department]="selectedDept" [teacher]="teacher.value"></app-departmentgsdec> 
+        <app-departmentgsdec [department]="selectedDept" [teacher]="teacher.value"></app-departmentgsdec>
       </div>
     </div>
   </div>
- 
+
   <app-fileinput>
     <!-- <input type="file" #file> -->
-<!-- //using directive -->
-    <input type="file" >
+    <!-- //using directive -->
+    <input type="file">
 
- 
-    
+
+
   </app-fileinput>
   <!-- slider -->
-<!-- one child -->
+  <!-- one child -->
   <div class="row">
 
     <app-slider [photos]="photos">
@@ -400,11 +401,11 @@
   </div>
 
   <!-- multiple children -->
-  <div  style="margin-top: 100px;">
+  <div style="margin-top: 100px;">
 
     <app-photo-list>
       <app-photo *ngFor="let photo of photos" [photo]="photo" (onRemove)="onRemoveEvent($event)">
-        
+
       </app-photo>
     </app-photo-list>
   </div>
@@ -413,40 +414,76 @@
   <!-- department -->
 
 
-<!-- movie -->
-  <div  style="margin-top: 100px;">
+  <!-- movie -->
+  <div style="margin-top: 100px;">
 
-    <app-marvel>
+    <!-- <app-marvel>
       <app-movie  [movie]="movie" >
         
       </app-movie>
-    </app-marvel>
+    </app-marvel> -->
   </div>
-<!-- accordian -->
-<div  style="margin-top: 100px;">
+  <!-- accordian -->
+  <div style="margin-top: 100px;">
 
-  <app-accordian>
-    <app-tab >
-      <h1>Home </h1>
-      <p>Page content</p>
-    </app-tab>
-    <app-tab >
-      <h1>Contact </h1>
-      <p>Contact content</p>
-    </app-tab>
-    <app-tab >
-      <h1>Data </h1>
-      <p>Data content</p>
-    </app-tab>
-  </app-accordian>
-</div>
+    <!-- <app-accordian>
+      <app-tab>
+        <h1>Home </h1>
+        <p>Page content</p>
+      </app-tab>
+      <app-tab>
+        <h1>Contact </h1>
+        <p>Contact content</p>
+      </app-tab>
+      <app-tab>
+        <h1>Data </h1>
+        <p>Data content</p>
+      </app-tab>
+      <app-tab (accItem)="addItem($event)" [isOpened]="true">
+        <h1>TEST </h1>
+        <p>TEST content</p>
+      </app-tab>
+    </app-accordian> -->
+  </div>
+
+  <div style="margin-top: 100px;"></div>
+   <!-- <ul>
+    <li *ngFor="let tech1  of techList">
+      {{tech1.name}}
+      <ul *ngIf="tech1.techList && tech1.techList.length">
+        <li *ngFor="let tech2  of tech1.techList">
+          {{tech2.name}}
+        </li>
+      </ul>
+    </li>
+  </ul> -->
+
+  <div #nodesTemplate></div>
+
+  <div style="margin-top: 100px;"></div>
+
+  <input type="file" #inp>
+  <input type="file" fileInput>
+  <input type="file" fileDIInput>
+  
+  <div style="margin-top: 100px;"></div>
+ 
+  <app-tutorial></app-tutorial>
 
   <footer>
 
+    <!-- <ul id="menu">
+      <li #teset>Home</li>
 
+      <li #last class="lastch">last</li>
+    </ul>
+
+    <ul id="app">
+      <li>HTML</li>
+    </ul> -->
   </footer>
 
- 
+
 </div>
 
 

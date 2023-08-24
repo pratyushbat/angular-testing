@@ -1,10 +1,14 @@
-section{
+section {
     border: 2px solid gray;
     padding: 10px;
     display: inline-block;
     margin: 5px;
 }
 
-section > header {cursor: pointer;}
+section>header {
+    cursor: pointer;
+}
 
-.hide{display: none;}
+.hide {
+    display: none;
+}

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-tab',
@@ -6,15 +6,18 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./tab.component.scss']
 })
 export class TabComponent {
+  @Output() accItem = new EventEmitter<string>();
 
   @Input()
-  isOpened:boolean=false;
+  isOpened: boolean = false;
 
-  public open()  {
-    if(this.isOpened)
-    return;
+  public open() {
+    if (this.isOpened)
+      return;
 
-    this.isOpened =true;
+    this.isOpened = true;
   }
-
+  addNewItem(value: string) {
+    this.accItem.emit(value);
+  }
 }

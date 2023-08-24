@@ -1,10 +1,9 @@
 <section>
     <header (click)="open()">
         <ng-content select="h1"></ng-content>
-
     </header>
     <hr>
-    <div [class.hide] ="!isOpened" class="content">
+    <div [class.hide] ="!isOpened" (click)="addNewItem('tt')" class="content">
         <ng-content></ng-content>
     </div>
 </section>

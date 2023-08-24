@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent, FileDIDirective, FileDirective } from './app.component';
 import { UserComponent } from './pages/user/user.component';
 import { OperationsComponent } from './pages/operations/operations.component';
 import { UsercComponent } from './pages/userc/userc.component';
@@ -19,6 +19,8 @@ import { MarvelComponent } from './pages/marvel/marvel.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { TabComponent } from './pages/tab/tab.component';
 import { AccordianComponent } from './pages/accordian/accordian.component';
+import { TutorialComponent } from './pages/tutorial/tutorial.component';
+import { CourseComponent } from './pages/course/course.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,11 @@ import { AccordianComponent } from './pages/accordian/accordian.component';
     MarvelComponent,
     MovieComponent,
     TabComponent,
-    AccordianComponent
+    AccordianComponent,
+    FileDirective,
+    FileDIDirective,
+    TutorialComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
