@@ -32,6 +32,61 @@ export class FileDIDirective {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
+  public nodes = [
+    {
+      name: "Web",
+      children: [
+        {
+          name: "Javascript",
+          children: [
+            {
+              name: "Ajax",
+            },
+            {
+              name: "DOM",
+            },
+          ],
+        },
+        {
+          name: "Angular",
+          children: [
+            {
+              name: "Rxjs",
+            },
+            {
+              name: "Typescript",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Languages",
+      children: [
+        {
+          name: "C",
+          children: [
+            {
+              name: "Libuv",
+              children: [
+                {
+                  name: "Event Loop",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: "C++",
+        },
+        {
+          name: "Java",
+          children: [{ name: "Spring Boot" }],
+        },
+      ],
+    },
+  ];
+
   techList: TreeNode[] = [
     {
       name: "Angular",

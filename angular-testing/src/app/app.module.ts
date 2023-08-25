@@ -25,6 +25,8 @@ import { HelloComponent } from './hello/hello.component';
 import { GreetComponent } from './greet/greet.component';
 import { GreetcComponent } from './greetc/greetc.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppcComponent, ImgPreviewDirective } from './pages/appc/appc.component';
+import { TreeNodeComponent } from './pages/tree-node/tree-node.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +53,10 @@ import { HttpClientModule } from '@angular/common/http';
     CourseComponent,
     HelloComponent,
     GreetComponent,
-    GreetcComponent
+    GreetcComponent,
+    AppcComponent,
+    ImgPreviewDirective,
+    TreeNodeComponent
   ],
   imports: [
     BrowserModule,

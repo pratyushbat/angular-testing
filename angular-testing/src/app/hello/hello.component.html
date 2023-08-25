@@ -1,10 +1,18 @@
-<!-- <p>hello works! {{name}}</p>
+<!-- you can un comment -->
+<!-- <p *ngIf="greetcCmp?.isAllowed">For you </p> -->
+<p>hello works! {{name}}</p>
 <div *ngIf="can">can show</div>
 <p *ngIf="greetCmp">For you 42 and 61 video go together </p>
 
-<p *ngIf="greetcCmp?.isAllowed">For you </p>
+use change detector ref or settimeout to avoid expression error!
 <app-greet [message]="message"></app-greet>
--->
 <app-greetc [message]="message"></app-greetc> 
 
 <h1 *ngIf="isLoading">Loading..</h1>
+<!-- <h1 *ngIf="isLoadingProm">Loading Promise..</h1> -->
+
+<h1> Posts </h1>
+
+<!-- <div *ngIf="postAPI.isLoading$ | async">Loading...</div> -->
+
+
