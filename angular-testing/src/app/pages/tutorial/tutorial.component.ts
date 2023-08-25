@@ -28,19 +28,12 @@ export class TutorialComponent {
     currency: "USD",
     date: "08/24/2023",
   };
-  public course2 = {
-    name: "Java++",
-    id: 2,
-    description: "Java++ programming",
-    category: "Programming",
-    price: 12,
-    currency: "USD",
-    date: "08/24/2023",
-  };
+
   coupons: string[] = [];
   isOnSale = false;
 
   @ViewChild(CourseComponent) courseCmp!: CourseComponent;
+
   ngAfterViewInit(): void {
     if (this.courseCmp.isOnSale) {
       setTimeout(() => {

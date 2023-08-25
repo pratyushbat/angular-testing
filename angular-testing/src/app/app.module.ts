@@ -21,7 +21,10 @@ import { TabComponent } from './pages/tab/tab.component';
 import { AccordianComponent } from './pages/accordian/accordian.component';
 import { TutorialComponent } from './pages/tutorial/tutorial.component';
 import { CourseComponent } from './pages/course/course.component';
-
+import { HelloComponent } from './hello/hello.component';
+import { GreetComponent } from './greet/greet.component';
+import { GreetcComponent } from './greetc/greetc.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,11 +48,15 @@ import { CourseComponent } from './pages/course/course.component';
     FileDirective,
     FileDIDirective,
     TutorialComponent,
-    CourseComponent
+    CourseComponent,
+    HelloComponent,
+    GreetComponent,
+    GreetcComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
