@@ -477,6 +477,22 @@
   <app-appc></app-appc>
   <div style="margin-top: 100px;"></div>
   <app-tree-node *ngFor="let node of nodes" [node]="node"></app-tree-node>
+  <div style="margin-top: 100px;"></div>
+  <section>
+
+    <div>
+        <app-photo-card></app-photo-card>
+    </div>
+
+    <div>
+        <app-post-card></app-post-card>
+    </div>
+
+    <div>
+        <h1>All Posts</h1>
+        <app-post [postOptions]="postOptions"></app-post>
+    </div>
+</section>
   
   <footer>
 

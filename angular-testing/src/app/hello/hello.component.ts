@@ -27,11 +27,11 @@ export class HelloComponent implements AfterViewInit, OnInit {
 
 
     //1st tick  -vid 61
-    console.log('hello')
+    //console.log('hello')
 
     //so in verification stage name is still ajit so no error given
     //2nd tick
-    setTimeout(() => { console.log('test') }, 0);
+   // setTimeout(() => { console.log('test') }, 0);
     Promise.resolve().then(() => {
       this.name = "Vijay";
       // this.can=true;
@@ -47,12 +47,12 @@ export class HelloComponent implements AfterViewInit, OnInit {
       // startWith([]),
       tap(() => {
         this.isLoading = false;
-        console.log('enter', this.isLoading)
+        //console.log('enter', this.isLoading)
       })
     )
       .subscribe({
         next: (posts) => {
-          console.log('posts---', posts, this.isLoading);
+          //console.log('posts---', posts, this.isLoading);
         },
         error: (err) => console.log(err),
       });
@@ -84,12 +84,12 @@ class PostAPI {
   public isLoading$ = this.loadingSubject.asObservable();
 
   public getPosts() {
-    console.log('hello--',this.isLoading$)
+    //console.log('hello--',this.isLoading$)
     this.loadingSubject.next(true);
 
     return  this.httpClient.get('https://jsonplaceholder.typicode.com/posts').pipe(
       tap(() => {
-        console.log('inside',this.isLoading$)
+        //console.log('inside',this.isLoading$)
         this.loadingSubject.next(false);
       })
     );

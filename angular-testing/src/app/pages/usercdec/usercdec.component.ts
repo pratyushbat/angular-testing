@@ -41,7 +41,7 @@ isMature:boolean=true;
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes['user'])
+//    console.log(changes['user'])
     if (changes['user']) {
 
       const { currentValue, firstChange } = changes['user'];

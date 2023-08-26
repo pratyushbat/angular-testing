@@ -30,7 +30,7 @@ export class AppcComponent implements AfterViewInit {
     //2st way
     this.imgInpList.forEach((elemRef) => {
       const inp = elemRef.nativeElement;
-      console.log(elemRef, elemRef.nativeElement)
+      //console.log(elemRef, elemRef.nativeElement)
       inp.addEventListener("change", () => this.previewImage(inp));
 
     });
@@ -40,14 +40,14 @@ export class AppcComponent implements AfterViewInit {
     const file = inpElement.files?.item(0);
     const inputContainer = inpElement.parentElement;
     const imgContainer = inputContainer?.nextElementSibling;
-    console.log(inpElement.parentElement, inpElement.parentElement?.nextElementSibling);
+    //console.log(inpElement.parentElement, inpElement.parentElement?.nextElementSibling);
     const imgTag = imgContainer?.firstElementChild as HTMLImageElement;
-    console.log(imgTag)
+    //console.log(imgTag)
     const fileReader = new FileReader();
 
     fileReader.onloadend = (evt) => {
       imgContainer?.classList.remove("hide");
-      console.log(evt.target)
+      //console.log(evt.target)
       imgTag.src = evt.target?.result as string;
     };
 

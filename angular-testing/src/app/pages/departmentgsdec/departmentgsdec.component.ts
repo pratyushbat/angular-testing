@@ -23,7 +23,7 @@ export class DepartmentgsdecComponent {
     if (teacher && teacher.trim().length) {
       this.department.teachers?.push(teacher);
     }
-    console.log('pushing', this.department)
+    //console.log('pushing', this.department)
   })
   @Input()
   teacher!: string

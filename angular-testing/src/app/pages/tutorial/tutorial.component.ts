@@ -51,7 +51,7 @@ export class TutorialComponent {
     this.isOnSale = true;
 
     getCoupons(evt.course.id).subscribe((coupons: string[]) => {
-      console.log(coupons)
+      //console.log(coupons)
       this.coupons = coupons;
     });
   }

@@ -23,7 +23,7 @@ export class DepartmentgsComponent {
       this.records.push(this.department);
       this.teacher = '';
     }
-    console.log('department', this.department)
+    //console.log('department', this.department)
 
   }
 
@@ -37,7 +37,7 @@ export class DepartmentgsComponent {
     if (val && val.trim().length) {
       this.department.teachers?.push(val);
     }
-    console.log('pushing', this.department)
+    //console.log('pushing', this.department)
   }
 
 

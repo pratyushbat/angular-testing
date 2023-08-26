@@ -18,7 +18,7 @@ export class UsercComponent implements OnChanges {
   set namex(val: string) {
     this._namex = val;
     if (val) {
-      console.log(val)
+      //console.log(val)
       this.uname = val.charAt(0) + val.substring(1);
     }
   }
@@ -32,7 +32,7 @@ export class UsercComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes['user'])
+    //console.log(changes['user'])
     if (changes['user']) {
 
       const { currentValue, firstChange } = changes['user'];

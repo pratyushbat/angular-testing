@@ -23,16 +23,16 @@ export class DepartmentComponent implements OnChanges {
         this.records.push(this.department);
         this.teacher = '';
       }
-      console.log('department',this.department)
+      //console.log('department',this.department)
     }
     if (changes['teacher']) {
     
       
       if (this.teacher && this.teacher.trim().length){
-        console.log('pushing',this.teacher)
+        //console.log('pushing',this.teacher)
         this.department.teachers?.push(this.teacher);
       }
-      console.log('records',this.records)
+      //console.log('records',this.records)
     }
 
   }

@@ -1,6 +1,10 @@
-import { AfterViewInit, Component, Directive, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Directive, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { PhotoEvent } from './pages/multiplechildren/photo/photo.component';
 import { Movie } from './interfaces/Movie';
+import { UserPost } from './interfaces/post.interface';
+import { POST_TYPE, PostOptions } from './interfaces/post-option.interface';
+import { HttpClient } from '@angular/common/http';
+import { Observable, count } from 'rxjs';
 
 interface TreeNode {
   name: string;
@@ -21,17 +25,115 @@ export class FileDirective {
 })
 export class FileDIDirective {
   constructor(public elmRef: ElementRef) {
-    console.log('---------', this.elmRef.nativeElement.files)
+    //console.log('---------', this.elmRef.nativeElement.files)
   }
 }
 
+function http(consumer: any, isPromise = false) {
+  const url = "https://jsonplaceholder.typicode.com/todos?&_limit=10";
+  const http = new XMLHttpRequest();
+  const onload = function () {
+    // console.log('----',http.response)
+    if (http.status === 200 && http.readyState == 4) {
+      if (isPromise)
+        consumer(http.response);
+      else
+        consumer.next(http.response);
+    }
+  }
+  http.addEventListener('load', onload);
+  http.open('GET', url);
+  http.send();
+
+  return () => { http.addEventListener('load', onload); http.abort(); }
+}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
+
+
+
+  ngOnInit(): void {
+
+    this.obsandPromise();
+  }
+  obsandPromise() {
+    const pr2 = new Promise((resolve) => {
+      console.log('starting promise', resolve)
+      //Emit a single value not stream
+      // http(resolve, true);
+      // http(resolve, true);
+      // http(resolve, true);
+      // http(resolve, true)
+    });
+    const obs2 = new Observable((observer) => {
+      console.log('starting obs')
+      // http(observer);
+      // http(observer);
+      // http(observer);
+      // http(observer);
+
+    });
+
+    const obssub = obs2.subscribe(data => console.log('*obs*', data));
+    //obssub.unsubscribe();
+
+    //Eager :consumer cannot cancel an observable
+
+
+    //setTimeout(() => pr2.then((data) => console.log(data)), 4000);
+    // producer cannot be close
+    //     setTimeout(() => obs2.subscribe(data => console.log('**', data)), 4000);
+    pr2.then((data) => console.log(data));
+    //obs2.subscribe(data => console.log('**', data));
+    const pr = new Promise((resolve) => {
+      console.log('in promise:done');
+     // resolve('promise:yep1');
+      // resolve method do not accept multiple values as below
+     // resolve('promise:yep2')
+      var counter = 0;
+      setInterval(() => {
+        counter += 1;
+        console.log('counter inside', counter);
+        resolve('promise:yep'+counter)
+      })
+      setTimeout(() => resolve('promise:yep'), 2000);
+    });
+
+    pr.then((data) => console.log(data));
+    //    setTimeout(() => pr.then((data) => console.log(data)), 4000);
+    //
+
+    // observable lazy
+
+    const obs = new Observable((obs) => {
+      console.log('obse:done');
+      obs.next('obs:yep1');
+      obs.next('obs:yep2');
+
+      setTimeout(() => obs.next('obs:yep'), 2000);
+    });
+
+    obs.subscribe(console.log);
+    //    setTimeout(() => obs.subscribe(console.log), 4000);
+  }
+
+
+
+  postOptions: any = {
+    type: POST_TYPE.ALL_POSTS,
+  };
+
+  commentOptions = {
+    id: 1,
+    type: POST_TYPE.COMMENT,
+  };
+
+
   public nodes = [
     {
       name: "Web",
@@ -148,22 +250,22 @@ export class AppComponent implements AfterViewInit {
   @ViewChild(FileDIDirective) inpRefDI!: FileDIDirective;
 
   ngAfterViewInit(): void {
-    console.log(this.techList)
+    //console.log(this.techList)
 
     const inptDr: any = this.inpRef2Dr.nativeElement;
     inptDr.addEventListener('change', () => {
-      console.log('changed using directive', inptDr.files)
+      //console.log('changed using directive', inptDr.files)
     })
     const inpt: any = this.inpRef.nativeElement;
     inpt.addEventListener('change', () => {
-      console.log('changed', inpt.files)
+      //console.log('changed', inpt.files)
     })
 
-    console.log(this.inpRefDI.elmRef.nativeElement)
+    //console.log(this.inpRefDI.elmRef.nativeElement)
     const inptDI: any = this.inpRefDI.elmRef.nativeElement;
     inptDI.addEventListener("change", () => {
-      console.log('changing')
-      console.log('changed using DI directive', inptDI.files)
+      //console.log('changing')
+      //console.log('changed using DI directive', inptDI.files)
     });
 
 
@@ -189,7 +291,7 @@ export class AppComponent implements AfterViewInit {
     }
     return ul;
   }
-  
+
   private createNodesCopy(tree: TreeNode[]) {
     const ul = document.createElement("div");
     ul.id = 'content';
@@ -232,7 +334,7 @@ export class AppComponent implements AfterViewInit {
       p.textContent = `Paragraph ${i}`;
       menu.appendChild(p);
     }
-    console.log('more optimized')
+    //console.log('more optimized')
     let fragment = document.createDocumentFragment();
     for (let i = 0; i < 4; i++) {
       let p = document.createElement('li');
@@ -242,24 +344,24 @@ export class AppComponent implements AfterViewInit {
     menu.appendChild(fragment);
     let content: any = document.getElementById('menu');
     let firstChild = content.firstChild.nodeName;
-    console.log(firstChild, content.firstElementChild);
+    //console.log(firstChild, content.firstElementChild);
 
-    console.log(content.lastElementChild);
-    console.log(content.childNodes)
-    console.log(content.children)
-    console.log(this.teset.nativeElement.nextElementSibling);
+    //console.log(content.lastElementChild);
+    //console.log(content.childNodes)
+    //console.log(content.children)
+    //console.log(this.teset.nativeElement.nextElementSibling);
     // let current = document.querySelector('.current');
     let current: any = this.teset.nativeElement
     let nextSibling = current.nextElementSibling;
 
     while (nextSibling) {
-      console.log(nextSibling);
+      //console.log(nextSibling);
       // current=nextSibling;
       nextSibling = nextSibling.nextElementSibling;
     }
 
     let currentnew: any = document.querySelector('.lastch');
-    console.log(currentnew.previousElementSibling);
+    //console.log(currentnew.previousElementSibling);
 
     let app: any = document.querySelector('#app');
 
@@ -338,7 +440,7 @@ export class AppComponent implements AfterViewInit {
 
 
   addItem(ev: any) {
-    console.log('app', ev)
+    //console.log('app', ev)
   }
 }
 

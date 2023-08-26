@@ -27,6 +27,9 @@ import { GreetcComponent } from './greetc/greetc.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppcComponent, ImgPreviewDirective } from './pages/appc/appc.component';
 import { TreeNodeComponent } from './pages/tree-node/tree-node.component';
+import { PostComponent } from './pages/post/post.component';
+import { PhotoCardComponent } from './pages/photo-card/photo-card.component';
+import { PostCardComponent } from './pages/post-card/post-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +59,10 @@ import { TreeNodeComponent } from './pages/tree-node/tree-node.component';
     GreetcComponent,
     AppcComponent,
     ImgPreviewDirective,
-    TreeNodeComponent
+    TreeNodeComponent,
+    PostComponent,
+    PhotoCardComponent,
+    PostCardComponent
   ],
   imports: [
     BrowserModule,

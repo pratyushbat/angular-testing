@@ -24,9 +24,9 @@ export class FileinputComponent implements AfterContentInit {
   }
 
   ngAfterContentInit(): void {
-    console.log('fileInputElement', this.fileInputElement);
+    //console.log('fileInputElement', this.fileInputElement);
     const { nativeElement } = this.fileInputElement.elemRef;
-    console.log('nativeElement', nativeElement);
+    //console.log('nativeElement', nativeElement);
     nativeElement.style.display = "none";
     nativeElement.addEventListener('change', (evt) => {
       this.previewImage(evt.target as HTMLInputElement);
@@ -36,7 +36,7 @@ export class FileinputComponent implements AfterContentInit {
   }
 
   previewImage(inpRef: HTMLInputElement) {
-    console.log(inpRef.files?.item(0));
+    //console.log(inpRef.files?.item(0));
     const file = inpRef.files?.item(0);
     this.file = file as File;
     const reader = new FileReader();

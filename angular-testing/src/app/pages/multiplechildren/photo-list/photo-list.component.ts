@@ -58,7 +58,7 @@ export class PhotoListComponent implements OnInit, AfterContentInit {
   private onPhotoComponentevent(selectedPhotoComponent: PhotoComponent, currIdx: number, evtType: PHOTO_EVENT_TYPE): void {
     // to unselect previous selected component;
     const { index: prevIndx, instance: prevSelectedComponent } = this.highlightedComponent;
-    console.log(prevIndx, prevSelectedComponent)
+    //console.log(prevIndx, prevSelectedComponent)
     switch (evtType) {
       case PHOTO_EVENT_TYPE.SELECT:
         if (prevSelectedComponent && prevIndx != currIdx) {
@@ -82,7 +82,7 @@ export class PhotoListComponent implements OnInit, AfterContentInit {
 
   changePhoto(incUnit: number): void {
     let { index, instance: component } = this.highlightedComponent;
-    console.log(index, component)
+    //console.log(index, component)
     const cmpListLength = this.photoComponentQueryList.length;
     if (component) {
       component.selected = false;
@@ -90,7 +90,7 @@ export class PhotoListComponent implements OnInit, AfterContentInit {
       index = index < 0 ? cmpListLength - 1 : index;
     }
     const photoComponent = this.photoComponentQueryList.get(index);
-    console.log(photoComponent, index)
+    //console.log(photoComponent, index)
     if (!photoComponent || photoComponent.selected) {
       return;
     }

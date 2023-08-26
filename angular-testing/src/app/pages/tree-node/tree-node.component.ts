@@ -26,17 +26,17 @@ export class TreeNodeComponent {
     if (emitEvent) {
       this.selectionEvent.emit(this.isSelected);
     }
-    console.log(this.childNodes.toArray())
+    //console.log(this.childNodes.toArray())
     this.childNodes?.forEach((childNode) => { childNode.toggleSelection(state, false); });
   }
 
   onChildSelectionEvent(isChildSelected: boolean) {
-    console.log(isChildSelected)
+    //console.log(isChildSelected)
     const childNodes = this.childNodes.toArray();
     // console.log(childNodes)
     const areSomeNodesSelected = childNodes.some((node) => node.isSelected);
     const isChildUnselected = !isChildSelected;
-    console.log(childNodes, 'areSomeNodesSelected:', areSomeNodesSelected, ',isChildUnselected:', isChildUnselected)
+    //console.log(childNodes, 'areSomeNodesSelected:', areSomeNodesSelected, ',isChildUnselected:', isChildUnselected)
     // (P:selected) child nodes -> [x:selected, y:selected, z:selected]
     // z:unselected event
     // because x and y are already in selected state, P cannot go into unselected state
@@ -44,7 +44,7 @@ export class TreeNodeComponent {
     if (areSomeNodesSelected && isChildUnselected) {
       return;
     }
-    console.log('here--' ,this.node.name)
+    //console.log('here--' ,this.node.name)
     this.isSelected = isChildSelected;
     this.selectionEvent.emit(this.isSelected);
   }
