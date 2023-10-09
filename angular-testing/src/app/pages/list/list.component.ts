@@ -5,6 +5,9 @@ import {
   ViewChild,
   ViewChildren,
   QueryList,
+  AfterContentInit,
+  ContentChild,
+  ViewEncapsulation,
 } from '@angular/core';
 import { ItemComponent, ItemService } from '../item/item.component';
 import {
@@ -16,9 +19,9 @@ import { LIST_TYPE } from 'src/app/enums/list-type.enum';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements AfterViewInit {
+export class ListComponent implements AfterViewInit  {
   // @ViewChild(ItemComponent , {read: ElementRef}) item!: ElementRef<HTMLElement>;
   // @ViewChild(ItemComponent , {read: ColorDirective}) item!: ColorDirective;
   // @ViewChild(ItemComponent , {read: ListTypeDirective}) item!: ListTypeDirective;
@@ -62,6 +65,8 @@ export class ListComponent implements AfterViewInit {
   @ViewChildren('item ,namedItem')  items9!: QueryList<ItemComponent>;
   constructor() {}
 
+ 
+
   ngAfterViewInit(): void {
     console.log('list :::', this.item);
     this.item2.apply('green');
@@ -92,9 +97,9 @@ export class ListComponent implements AfterViewInit {
     const colors = ['pink', 'blue'];
     this.items4.forEach((color, index) => color.apply(colors[index]));
 
-    this.items5.forEach((item: any) =>
-      item.nativeElement.classList.add('text-blue')
-    );
+    // this.items5.forEach((item: any) =>
+    //   item.nativeElement.classList.add('text-blue')
+    // );
     this.items6.forEach((item: ItemService) =>
       item.getItems().subscribe(console.log)
     );

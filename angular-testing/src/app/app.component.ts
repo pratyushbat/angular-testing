@@ -96,11 +96,11 @@ export class AppComponent implements AfterViewInit, OnInit {
       // resolve method do not accept multiple values as below
      // resolve('promise:yep2')
       var counter = 0;
-      setInterval(() => {
-        counter += 1;
-        console.log('counter inside', counter);
-        resolve('promise:yep'+counter)
-      })
+      // setInterval(() => {
+      //   counter += 1;
+      //   console.log('counter inside', counter);
+      //   resolve('promise:yep'+counter)
+      // })
       setTimeout(() => resolve('promise:yep'), 2000);
     });
 

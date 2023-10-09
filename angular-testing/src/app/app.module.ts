@@ -33,6 +33,7 @@ import { PostCardComponent } from './pages/post-card/post-card.component';
 import { ListComponent } from './pages/list/list.component';
 import { ItemComponent } from './pages/item/item.component';
 import { ColorDirective, ListTypeDirective } from './directives/item-directives';
+import { AppListOneComponent } from './pages/app-list-one/app-list-one.component';
 @NgModule({
   declarations: [
     ListTypeDirective,
@@ -69,7 +70,8 @@ import { ColorDirective, ListTypeDirective } from './directives/item-directives'
     PhotoCardComponent,
     PostCardComponent,
     ListComponent,
-    ItemComponent
+    ItemComponent,
+    AppListOneComponent
   ],
   imports: [
     BrowserModule,
