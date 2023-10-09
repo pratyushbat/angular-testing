@@ -30,8 +30,13 @@ import { TreeNodeComponent } from './pages/tree-node/tree-node.component';
 import { PostComponent } from './pages/post/post.component';
 import { PhotoCardComponent } from './pages/photo-card/photo-card.component';
 import { PostCardComponent } from './pages/post-card/post-card.component';
+import { ListComponent } from './pages/list/list.component';
+import { ItemComponent } from './pages/item/item.component';
+import { ColorDirective, ListTypeDirective } from './directives/item-directives';
 @NgModule({
   declarations: [
+    ListTypeDirective,
+    ColorDirective,
     AppComponent,
     UserComponent,
     OperationsComponent,
@@ -62,7 +67,9 @@ import { PostCardComponent } from './pages/post-card/post-card.component';
     TreeNodeComponent,
     PostComponent,
     PhotoCardComponent,
-    PostCardComponent
+    PostCardComponent,
+    ListComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

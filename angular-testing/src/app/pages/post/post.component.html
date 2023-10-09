@@ -1,7 +1,7 @@
 <h3 *ngIf="postOptions?.id"> User Id {{ postOptions.id }} </h3>
 
 <ng-container *ngIf="postOptions?.type === 'POST' || postOptions?.type === 'ALL_POSTS' ">
-    <h1>{{postOptions?.type}}</h1>
+    <h1>{{postOptions.type}}</h1>
     <p *ngFor="let post of posts">
         id {{ post.id }}
         <br />
@@ -12,7 +12,7 @@
 </ng-container>
 
 <ng-container *ngIf="postOptions?.type === 'COMMENT'">
-    <h1>{{postOptions?.type}}</h1>
+    <h1>{{postOptions.type}}</h1>
     <p *ngFor="let post of posts">
         email {{ $any(post).email }}
         <br />
@@ -23,7 +23,7 @@
 </ng-container>
 
 <ng-container *ngIf="postOptions?.type === 'PHOTO'">
-    <h1>{{postOptions?.type}}</h1>
+    <h1>{{postOptions.type}}</h1>
     <div class="photo-container" *ngFor="let photo of posts">
         id {{ photo.id }}
 

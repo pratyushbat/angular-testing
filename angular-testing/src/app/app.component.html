@@ -9,7 +9,9 @@
 
 <style>
   :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
     font-size: 14px;
     color: #333;
     box-sizing: border-box;
@@ -245,7 +247,7 @@
     align-items: center;
     font-size: 12px;
     padding: 3px 10px;
-    border: 1px solid rgba(27, 31, 35, .2);
+    border: 1px solid rgba(27, 31, 35, 0.2);
     border-radius: 3px;
     background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
     margin-left: 4px;
@@ -254,8 +256,8 @@
 
   .github-star-badge:hover {
     background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
-    border-color: rgba(27, 31, 35, .35);
-    background-position: -.5em;
+    border-color: rgba(27, 31, 35, 0.35);
+    background-position: -0.5em;
   }
 
   .github-star-badge .material-icons {
@@ -274,8 +276,7 @@
 
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
-
-    .card-container>*:not(.circle-link),
+    .card-container > *:not(.circle-link),
     .terminal {
       width: 100%;
     }
@@ -305,63 +306,85 @@
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <img width="40" alt="Angular Logo"
-    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
+  <img
+    width="40"
+    alt="Angular Logo"
+    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+  />
   <span>Welcome</span>
   <div class="spacer"></div>
-  <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
-    <svg id="twitter-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <a
+    aria-label="Angular on twitter"
+    target="_blank"
+    rel="noopener"
+    href="https://twitter.com/angular"
+    title="Twitter"
+  >
+    <svg
+      id="twitter-logo"
+      height="24"
+      data-name="Logo"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 400 400"
+    >
       <rect width="400" height="400" fill="none" />
       <path
         d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23"
-        fill="#fff" />
+        fill="#fff"
+      />
     </svg>
   </a>
-  <a aria-label="Angular on YouTube" target="_blank" rel="noopener" href="https://youtube.com/angular" title="YouTube">
-    <svg id="youtube-logo" height="24" width="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24" fill="#fff">
+  <a
+    aria-label="Angular on YouTube"
+    target="_blank"
+    rel="noopener"
+    href="https://youtube.com/angular"
+    title="YouTube"
+  >
+    <svg
+      id="youtube-logo"
+      height="24"
+      width="24"
+      data-name="Logo"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="#fff"
+    >
       <path d="M0 0h24v24H0V0z" fill="none" />
       <path
-        d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z" />
+        d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"
+      />
     </svg>
   </a>
 </div>
 
 <div class="content" role="main">
-
   <!-- Highlight Card -->
   <div class="card highlight-card card-small">
-
-
-
     <span>{{ title }} app is running!</span>
-
-
-
   </div>
 
-
   <!-- Terminal -->
-
 
   <!-- Links -->
   <div class="card-container">
     <select (change)="onIdSelection(selectedid.value)" #selectedid>
       <option selected disabled>No id selected</option>
-      <option [value]="id" *ngFor="let id of userIds">{{id}}</option>
+      <option [value]="id" *ngFor="let id of userIds">{{ id }}</option>
     </select>
-
-
-
   </div>
   <app-user [userId]="selectedId"></app-user>
-  Name: <input type="text" (keyup.enter)="0;" #name>
-  dob: <input type="text" (keyup.enter)="0;" #dob>
+  Name: <input type="text" (keyup.enter)="(0)" #name /> dob:
+  <input type="text" (keyup.enter)="(0)" #dob />
   <!-- <app-userc [namex]="name.value" [dob]="dob.value" [user]="user" *ngFor="let user of user ns" (nameEvt)="onNameChange($event)"></app-userc> -->
-  <app-usercdec [namex]="name.value" [dob]="dob.value" [user]="user" *ngFor="let user of users "
-    (nameEvt)="onNameChange($event)"></app-usercdec>
+  <app-usercdec
+    [namex]="name.value"
+    [dob]="dob.value"
+    [user]="user"
+    *ngFor="let user of users"
+    (nameEvt)="onNameChange($event)"
+  ></app-usercdec>
   <!-- Footer -->
-
 
   ..................................................................................................
   <!-- department -->
@@ -369,16 +392,21 @@
     <div class="col-md-9">
       <select (change)="onDepartmentChange(dep.value)" #dep>
         <option value="-1" selected>Choose department</option>
-        <option [value]="i" *ngFor="let dep  of departments; index as i">{{dep.name}}</option>
+        <option [value]="i" *ngFor="let dep of departments; index as i">
+          {{ dep.name }}
+        </option>
       </select>
     </div>
     <div class="col-md-3">
       <div>
         <label>Teacher:</label>
-        <input type="text" (keyup.enter)="0;" #teacher>
+        <input type="text" (keyup.enter)="(0)" #teacher />
         <!-- <app-department [department]="selectedDept" [teacher]="teacher.value"></app-department> -->
         <!-- <app-departmentgs [department]="selectedDept" [teacher]="teacher.value"></app-departmentgs> -->
-        <app-departmentgsdec [department]="selectedDept" [teacher]="teacher.value"></app-departmentgsdec>
+        <app-departmentgsdec
+          [department]="selectedDept"
+          [teacher]="teacher.value"
+        ></app-departmentgsdec>
       </div>
     </div>
   </div>
@@ -386,26 +414,24 @@
   <app-fileinput>
     <!-- <input type="file" #file> -->
     <!-- //using directive -->
-    <input type="file">
-
-
-
+    <input type="file" />
   </app-fileinput>
   <!-- slider -->
   <!-- one child -->
   <div class="row">
-
     <app-slider [photos]="photos">
       <app-photo-preview [selectedPhoto]="photos[2]"></app-photo-preview>
     </app-slider>
   </div>
 
   <!-- multiple children -->
-  <div style="margin-top: 100px;">
-
+  <div style="margin-top: 100px">
     <app-photo-list>
-      <app-photo *ngFor="let photo of photos" [photo]="photo" (onRemove)="onRemoveEvent($event)">
-
+      <app-photo
+        *ngFor="let photo of photos"
+        [photo]="photo"
+        (onRemove)="onRemoveEvent($event)"
+      >
       </app-photo>
     </app-photo-list>
   </div>
@@ -413,10 +439,8 @@
   <!-- multiple children -->
   <!-- department -->
 
-
   <!-- movie -->
-  <div style="margin-top: 100px;">
-
+  <div style="margin-top: 100px">
     <!-- <app-marvel>
       <app-movie  [movie]="movie" >
         
@@ -424,8 +448,7 @@
     </app-marvel> -->
   </div>
   <!-- accordian -->
-  <div style="margin-top: 100px;">
-
+  <div style="margin-top: 100px">
     <!-- <app-accordian>
       <app-tab>
         <h1>Home </h1>
@@ -446,8 +469,8 @@
     </app-accordian> -->
   </div>
 
-  <div style="margin-top: 100px;"></div>
-   <!-- <ul>
+  <div style="margin-top: 100px"></div>
+  <!-- <ul>
     <li *ngFor="let tech1  of techList">
       {{tech1.name}}
       <ul *ngIf="tech1.techList && tech1.techList.length">
@@ -460,42 +483,48 @@
 
   <div #nodesTemplate></div>
 
-  <div style="margin-top: 100px;"></div>
+  <div style="margin-top: 100px"></div>
 
-  <input type="file" #inp>
-  <input type="file" fileInput>
-  <input type="file" fileDIInput>
-  
-  <div style="margin-top: 100px;"></div>
- 
+  <input type="file" #inp />
+  <input type="file" fileInput />
+  <input type="file" fileDIInput />
+
+  <div style="margin-top: 100px"></div>
+
   <app-tutorial></app-tutorial>
-  <div style="margin-top: 100px;"></div>
- 
+  <div style="margin-top: 100px"></div>
+
   <app-hello></app-hello>
-  <div style="margin-top: 100px;"></div>
+  <div style="margin-top: 100px"></div>
 
   <app-appc></app-appc>
-  <div style="margin-top: 100px;"></div>
+  <div style="margin-top: 100px"></div>
   <app-tree-node *ngFor="let node of nodes" [node]="node"></app-tree-node>
-  <div style="margin-top: 100px;"></div>
+  <div style="margin-top: 100px"></div>
   <section>
-
     <div>
-        <app-photo-card></app-photo-card>
+      <app-photo-card></app-photo-card>
     </div>
 
     <div>
-        <app-post-card></app-post-card>
+      <app-post-card></app-post-card>
     </div>
 
     <div>
-        <h1>All Posts</h1>
-        <app-post [postOptions]="postOptions"></app-post>
+      <h1>All Posts</h1>
+      <app-post [postOptions]="postOptions"></app-post>
     </div>
-</section>
-  
+  </section>
+  <div>
+    <h1>Coments</h1>
+    <app-post [postOptions]="commentOptions"></app-post>
+  </div>
+
+  <div style="margin-top: 100px"></div>
+  <section>
+    <app-list></app-list>
+  </section>
   <footer>
-
     <!-- <ul id="menu">
       <li #teset>Home</li>
 
@@ -506,11 +535,6 @@
       <li>HTML</li>
     </ul> -->
   </footer>
-
-
 </div>
-
-
-
 
 <router-outlet></router-outlet>

@@ -55,6 +55,7 @@ export class PostComponent  implements OnInit {
     // ajax.getJSON<UserPost[]>(url)
       this.postOptions = postOptions; // important to place this statment here, if move outside will cause ExpressionChangedError
        this.posts = (posts || []).slice(0, 3);
+       console.log(this.posts)
       // this.posts = posts;
     });
   }
