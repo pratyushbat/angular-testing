@@ -34,6 +34,7 @@ export class PhotoCardComponent implements AfterViewChecked  {
     });
   }
 
+  // call on all cghange detection
   ngAfterViewChecked() {
     if (!this.postCmp && this.id) {
       // important to place this statment inside timeout, otherwise will cause ExpressionChangedError

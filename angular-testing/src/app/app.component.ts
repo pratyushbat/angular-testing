@@ -1,69 +1,142 @@
-import { AfterViewInit, Component, Directive, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Directive,
+  ElementRef,
+  Input,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 import { PhotoEvent } from './pages/multiplechildren/photo/photo.component';
 import { Movie } from './interfaces/Movie';
 import { UserPost } from './interfaces/post.interface';
 import { POST_TYPE, PostOptions } from './interfaces/post-option.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable, count } from 'rxjs';
+import { ImgPreviewDirective } from './directives/imgpr.directive';
 
 interface TreeNode {
   name: string;
   techList?: TreeNode[];
 }
 
+
+
 @Directive({
-  selector: "[fileInput]"
+  selector: '[fileInput]',
 })
 export class FileDirective {
-  test: string = 'oo'
-  constructor() { }
+  test: string = 'oo';
+  constructor() {}
 }
 
-
 @Directive({
-  selector: "[fileDIInput]"
+  selector: '[fileDIInput]',
 })
 export class FileDIDirective {
+
+
+
+  
   constructor(public elmRef: ElementRef) {
     //console.log('---------', this.elmRef.nativeElement.files)
   }
 }
 
 function http(consumer: any, isPromise = false) {
-  const url = "https://jsonplaceholder.typicode.com/todos?&_limit=10";
+  const url = 'https://jsonplaceholder.typicode.com/todos?&_limit=10';
   const http = new XMLHttpRequest();
   const onload = function () {
     // console.log('----',http.response)
     if (http.status === 200 && http.readyState == 4) {
-      if (isPromise)
-        consumer(http.response);
-      else
-        consumer.next(http.response);
+      if (isPromise) consumer(http.response);
+      else consumer.next(http.response);
     }
-  }
+  };
   http.addEventListener('load', onload);
   http.open('GET', url);
   http.send();
 
-  return () => { http.addEventListener('load', onload); http.abort(); }
+  return () => {
+    http.addEventListener('load', onload);
+    http.abort();
+  };
 }
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit, OnInit {
-
-
-
   ngOnInit(): void {
+    let  acloc=[1,4,6,94,5,4];
+    this.sumofArray(acloc);
+    // check if 4 is present in array
 
     this.obsandPromise();
   }
+
+ sumofArray(arr:any[]){
+  let p = this.sumA(arr,0);
+  console.log('sumA',p)
+  let ap = this.checknumpresent(arr,0,4);
+  console.log('checknumpresent',ap)
+  let allindnum = this.allindnum(arr,0,4);
+  console.log('allindnum',allindnum)
+  
+}
+
+ sumA(arr:any[],index:number):any{
+  if(index===arr.length-1)
+    return arr[index];
+    
+  let px= this.sumA(arr,index+1);
+  return px + ':' +arr[index] ;
+
+}
+
+checknumpresent(arr:any[],index:number,num:number):any{
+  if(index===arr.length-1){
+    if(arr[index]===num)
+    return true 
+    else 
+    return false
+  }    
+    
+  let px= this.checknumpresent(arr,index+1,num);
+  
+   if(arr[index]===num)
+  return true ;
+  else
+  return px;
+}
+
+
+allindnum(arr:any[],index:number,num:number):any{
+  if(index===arr.length-1){
+    if(arr[index]===num)
+    return [index] ;
+    else 
+    return [];
+  }    
+    
+  let px= this.allindnum(arr,index+1,num);
+  
+   if(arr[index]===num){
+    px.push(index) ;
+ 
+    return px ;
+   }
+  
+  else
+  return px;
+}
   obsandPromise() {
     const pr2 = new Promise((resolve) => {
-      console.log('starting promise', resolve)
+      console.log('starting promise', resolve);
       //Emit a single value not stream
       // http(resolve, true);
       // http(resolve, true);
@@ -71,19 +144,17 @@ export class AppComponent implements AfterViewInit, OnInit {
       // http(resolve, true)
     });
     const obs2 = new Observable((observer) => {
-      console.log('starting obs')
+      console.log('starting obs');
       // http(observer);
       // http(observer);
       // http(observer);
       // http(observer);
-
     });
 
-    const obssub = obs2.subscribe(data => console.log('*obs*', data));
+    const obssub = obs2.subscribe((data) => console.log('*obs*', data));
     //obssub.unsubscribe();
 
     //Eager :consumer cannot cancel an observable
-
 
     //setTimeout(() => pr2.then((data) => console.log(data)), 4000);
     // producer cannot be close
@@ -92,9 +163,9 @@ export class AppComponent implements AfterViewInit, OnInit {
     //obs2.subscribe(data => console.log('**', data));
     const pr = new Promise((resolve) => {
       console.log('in promise:done');
-     // resolve('promise:yep1');
+      // resolve('promise:yep1');
       // resolve method do not accept multiple values as below
-     // resolve('promise:yep2')
+      // resolve('promise:yep2')
       var counter = 0;
       // setInterval(() => {
       //   counter += 1;
@@ -122,8 +193,6 @@ export class AppComponent implements AfterViewInit, OnInit {
     //    setTimeout(() => obs.subscribe(console.log), 4000);
   }
 
-
-
   postOptions: any = {
     type: POST_TYPE.ALL_POSTS,
   };
@@ -133,57 +202,56 @@ export class AppComponent implements AfterViewInit, OnInit {
     type: POST_TYPE.COMMENT,
   };
 
-
   public nodes = [
     {
-      name: "Web",
+      name: 'Web',
       children: [
         {
-          name: "Javascript",
+          name: 'Javascript',
           children: [
             {
-              name: "Ajax",
+              name: 'Ajax',
             },
             {
-              name: "DOM",
+              name: 'DOM',
             },
           ],
         },
         {
-          name: "Angular",
+          name: 'Angular',
           children: [
             {
-              name: "Rxjs",
+              name: 'Rxjs',
             },
             {
-              name: "Typescript",
+              name: 'Typescript',
             },
           ],
         },
       ],
     },
     {
-      name: "Languages",
+      name: 'Languages',
       children: [
         {
-          name: "C",
+          name: 'C',
           children: [
             {
-              name: "Libuv",
+              name: 'Libuv',
               children: [
                 {
-                  name: "Event Loop",
+                  name: 'Event Loop',
                 },
               ],
             },
           ],
         },
         {
-          name: "C++",
+          name: 'C++',
         },
         {
-          name: "Java",
-          children: [{ name: "Spring Boot" }],
+          name: 'Java',
+          children: [{ name: 'Spring Boot' }],
         },
       ],
     },
@@ -191,43 +259,43 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   techList: TreeNode[] = [
     {
-      name: "Angular",
+      name: 'Angular',
       techList: [
         {
-          name: "Rxjs",
+          name: 'Rxjs',
           techList: [],
         },
         {
-          name: "Typescript",
+          name: 'Typescript',
           techList: [],
         },
       ],
     },
     {
-      name: "Javascript",
+      name: 'Javascript',
       techList: [],
     },
     {
-      name: "React",
+      name: 'React',
       techList: [
         {
-          name: "Router",
+          name: 'Router',
           techList: [],
         },
       ],
     },
     {
-      name: "Java",
+      name: 'Java',
       techList: [
         {
-          name: "Spring",
+          name: 'Spring',
           techList: [
             {
-              name: "IOC",
+              name: 'IOC',
               techList: [],
             },
             {
-              name: "DI",
+              name: 'DI',
               techList: [],
             },
           ],
@@ -236,39 +304,63 @@ export class AppComponent implements AfterViewInit, OnInit {
     },
   ];
 
-  @ViewChild("nodesTemplate") section!: ElementRef<HTMLElement>;
+  @ViewChild('nodesTemplate') section!: ElementRef<HTMLElement>;
 
-  @ViewChild("teset") teset!: ElementRef<HTMLElement>;
+  @ViewChild('teset') teset!: ElementRef<HTMLElement>;
 
   //without directive
-  @ViewChild("inp") inpRef!: ElementRef<HTMLElement>;
+  @ViewChild('inp') inpRef!: ElementRef<HTMLElement>;
   // @ViewChild(FileDirective) inpRef2Dr!: FileDirective;
   // with directive
-  @ViewChild(FileDirective, { read: ElementRef }) inpRef2Dr!: ElementRef<HTMLElement>;
+  @ViewChild(FileDirective, { read: ElementRef })
+  inpRef2Dr!: ElementRef<HTMLElement>;
 
   //with directive and dependency injection
   @ViewChild(FileDIDirective) inpRefDI!: FileDIDirective;
 
+  // @ViewChildren('img') imgInpList!: QueryList<ElementRef>;
+  // or
+  // @ViewChildren(ImgPreviewDirective) imgInpList!: QueryList<ImgPreviewDirective>;
+  // or
+  @ViewChildren(ImgPreviewDirective, { read: ElementRef }) imgInpList!: QueryList<ElementRef>;
+  
   ngAfterViewInit(): void {
+
+    // this.imgInpList.forEach((directive) => {
+    //   const inp = directive.elemRef.nativeElement;
+    //   console.log('hurray')
+    //   console.log(inp)
+
+    //   inp.addEventListener("change", () => this.previewImage(inp));
+    // });
+
+    
+    this.imgInpList.forEach((elemRef) => {
+      const inp = elemRef.nativeElement;
+      console.log('hurray')
+      console.log(inp)
+
+      inp.addEventListener("change", () => this.previewImage(inp));
+    });
+
+
     //console.log(this.techList)
 
     const inptDr: any = this.inpRef2Dr.nativeElement;
     inptDr.addEventListener('change', () => {
       //console.log('changed using directive', inptDr.files)
-    })
+    });
     const inpt: any = this.inpRef.nativeElement;
     inpt.addEventListener('change', () => {
-      //console.log('changed', inpt.files)
-    })
+      console.log('changed0 ::', inpt.files);     
+    });
 
     //console.log(this.inpRefDI.elmRef.nativeElement)
     const inptDI: any = this.inpRefDI.elmRef.nativeElement;
-    inptDI.addEventListener("change", () => {
+    inptDI.addEventListener('change', () => {
       //console.log('changing')
-      //console.log('changed using DI directive', inptDI.files)
+      console.log('changed using DI directive', inptDI.files)
     });
-
-
 
     const template = this.section.nativeElement;
 
@@ -277,11 +369,31 @@ export class AppComponent implements AfterViewInit, OnInit {
     template.appendChild(ul);
   }
 
+  private previewImage(inpElement: HTMLInputElement) {
+    console.log(inpElement)
+    const file = inpElement.files?.item(0);
+    const inputContainer = inpElement.parentElement;
+    console.log(inputContainer)
+    const imgContainer = inputContainer?.nextElementSibling;
+    console.log(imgContainer)
+    const imgTag = imgContainer?.firstElementChild as HTMLImageElement;
+    console.log(imgTag)
+    const fileReader = new FileReader();
+
+    fileReader.onloadend = (evt) => {
+      imgContainer?.classList.remove("hide");
+
+      imgTag.src = evt.target?.result as string;
+    };
+
+    fileReader.readAsDataURL(file as File);
+  }
+
   private createNodes(tree: TreeNode[]) {
-    const ul = document.createElement("ul");
+    const ul = document.createElement('ul');
     for (const node of tree) {
       const { name, techList } = node;
-      const li = document.createElement("li");
+      const li = document.createElement('li');
       li.textContent = name;
       if (Array.isArray(techList) && techList.length) {
         const nestedUL = this.createNodes(techList);
@@ -293,13 +405,12 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
 
   private createNodesCopy(tree: TreeNode[]) {
-    const ul = document.createElement("div");
+    const ul = document.createElement('div');
     ul.id = 'content';
     ul.className = 'note sd';
     // ul.innerHTML = '<p>CreateElement example</p>';
 
-
-    let text = document.createTextNode('Create Element child ')
+    let text = document.createTextNode('Create Element child ');
     let p1 = document.createElement('p');
     p1.textContent = 'Add p element';
     let h2 = document.createElement('h2');
@@ -316,7 +427,6 @@ export class AppComponent implements AfterViewInit, OnInit {
     ul.appendChild(uloriginal);
 
     const menu: any = document.querySelector('#menu');
-
 
     let li0 = document.createElement('li');
     li0.innerHTML = '<p  >CreateElemen tesett example</p>';
@@ -351,7 +461,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     //console.log(content.children)
     //console.log(this.teset.nativeElement.nextElementSibling);
     // let current = document.querySelector('.current');
-    let current: any = this.teset.nativeElement
+    let current: any = this.teset.nativeElement;
     let nextSibling = current.nextElementSibling;
 
     while (nextSibling) {
@@ -367,7 +477,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 
     let langs = ['CSS', 'JavaScript', 'TypeScript'];
 
-    let nodes = langs.map(lang => {
+    let nodes = langs.map((lang) => {
       let li = document.createElement('li');
       li.textContent = lang;
       return li;
@@ -375,10 +485,8 @@ export class AppComponent implements AfterViewInit, OnInit {
     app.prepend(...nodes);
     app.prepend('headimng fdghdfgh');
 
-
     return ul;
   }
-
 
   title = 'angular-testing';
 
@@ -387,7 +495,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   public selectedId: number | undefined;
   onIdSelection(newId: any): void {
-    this.selectedId = + newId;
+    this.selectedId = +newId;
   }
   // user
   // user-c
@@ -399,51 +507,69 @@ export class AppComponent implements AfterViewInit, OnInit {
     { name: 'Akshay', id: 5 },
   ];
   public onNameChange(changedUser: any): void {
-
-    const user: any = this.users.find(user => user.id === changedUser.id);
+    const user: any = this.users.find((user) => user.id === changedUser.id);
     user['name'] = changedUser.name;
   }
   // user-c
 
   //DEPARTMENT
   public departments = [
-    { name: "CSE", depId: 23 },
-    { name: "EEE", depId: 24 },
-    { name: "IT", depId: 26 },
-    { name: "ME", depId: 27 }
-
+    { name: 'CSE', depId: 23 },
+    { name: 'EEE', depId: 24 },
+    { name: 'IT', depId: 26 },
+    { name: 'ME', depId: 27 },
   ];
   public selectedDept!: Department;
   onDepartmentChange(depIndex: string) {
-    this.selectedDept = this.departments[+depIndex]
+    this.selectedDept = this.departments[+depIndex];
   }
   //DEPARTMENT
 
-
   //photo
   photos: Photo[] = [
-    { id: 1, name: 'Labra', description: 'Labra', src: 'https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U' },
-    { id: 2, name: 'SDD', description: 'SDD', src: 'https://fastly.picsum.photos/id/877/200/300.jpg?grayscale&hmac=FOZGF0rM7zWjUj5WdQNup5xu5aSmqElwkG5ZAk03Ny8' },
-    { id: 3, name: 'sdad', description: 'sdad', src: 'https://images.squarespace-cdn.com/content/v1/58d09402db29d660e4781a57/a0b4f155-d9ea-412e-979b-300dd47bbff3/Hogan_Josh_SmallHero_BigMultiverse_AntMan_D23_2022_7886.JPG' },
-    { id: 4, name: 'Labdasdra', description: 'Labdasdra', src: 'https://static01.nyt.com/images/2018/07/06/arts/06antman1-dressrefer/06antman1-dressrefer-superJumbo.jpg' },
-    { id: 5, name: 'zLabra', description: 'zLabra', src: 'https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U' }
+    {
+      id: 1,
+      name: 'Labra',
+      description: 'Labra',
+      src: 'https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U',
+    },
+    {
+      id: 2,
+      name: 'SDD',
+      description: 'SDD',
+      src: 'https://fastly.picsum.photos/id/877/200/300.jpg?grayscale&hmac=FOZGF0rM7zWjUj5WdQNup5xu5aSmqElwkG5ZAk03Ny8',
+    },
+    {
+      id: 3,
+      name: 'sdad',
+      description: 'sdad',
+      src: 'https://images.squarespace-cdn.com/content/v1/58d09402db29d660e4781a57/a0b4f155-d9ea-412e-979b-300dd47bbff3/Hogan_Josh_SmallHero_BigMultiverse_AntMan_D23_2022_7886.JPG',
+    },
+    {
+      id: 4,
+      name: 'Labdasdra',
+      description: 'Labdasdra',
+      src: 'https://static01.nyt.com/images/2018/07/06/arts/06antman1-dressrefer/06antman1-dressrefer-superJumbo.jpg',
+    },
+    {
+      id: 5,
+      name: 'zLabra',
+      description: 'zLabra',
+      src: 'https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U',
+    },
   ];
 
   onRemoveEvent(evt: PhotoEvent) {
-    this.photos = this.photos.filter(p => p.id != evt.photo.id);
-
+    this.photos = this.photos.filter((p) => p.id != evt.photo.id);
   }
 
-
   //movie
-  movie: Movie = { id: 1, name: "The Gaurs", isReleases: false };
-
+  movie: Movie = { id: 1, name: 'The Gaurs', isReleases: false };
 
   addItem(ev: any) {
     //console.log('app', ev)
   }
 }
-
 
 export class Department {
   name!: string;

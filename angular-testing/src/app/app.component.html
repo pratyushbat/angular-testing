@@ -481,12 +481,15 @@
     </li>
   </ul> -->
 
+  <h1>Node crated using just one div</h1>
   <div #nodesTemplate></div>
 
   <div style="margin-top: 100px"></div>
 
   <input type="file" #inp />
+  <h1>hello</h1>
   <input type="file" fileInput />
+  using DI
   <input type="file" fileDIInput />
 
   <div style="margin-top: 100px"></div>
@@ -494,10 +497,10 @@
   <app-tutorial></app-tutorial>
   <div style="margin-top: 100px"></div>
 
-  <app-hello></app-hello>
+  <!-- <app-hello></app-hello> -->
   <div style="margin-top: 100px"></div>
 
-  <app-appc></app-appc>
+  <!-- <app-appc></app-appc> -->
   <div style="margin-top: 100px"></div>
   <app-tree-node *ngFor="let node of nodes" [node]="node"></app-tree-node>
   <div style="margin-top: 100px"></div>
@@ -520,19 +523,69 @@
     <app-post [postOptions]="commentOptions"></app-post>
   </div>
 
-  <div style="margin-top: 100px"></div>
-  <section>
+  <!-- <div style="margin-top: 100px"></div> -->
+  <!-- <section>
     <app-list></app-list>
-  </section>
-  <div style="margin-top: 100px"></div>
-  <section>
-    <app-app-list-one>
+  </section> -->
+  <!-- <div style="margin-top: 100px"></div> -->
+  <!-- <section> -->
+    <!-- <app-app-list-one>
       <app-item  #namedItem color listType value="Projected Ajit">
         <app-item    color listType value="Ajit child one two"></app-item>
       </app-item>
       <app-item   #item color listType value="Shivam two"></app-item>
-    </app-app-list-one>
+    </app-app-list-one> -->
+  <!-- </section> -->
+
+
+  <section class="container">
+
+    <div>
+        Picture
+        <br>
+        <input imgPreview type="file">
+        <!-- <input #img type="file"> -->
+      </div>
+  
+  
+    <div class="img-container hide">
+        <img>
+    </div>
+  
+  
   </section>
+  
+  
+  <hr />
+  
+  <section class="container">
+  
+    <div>
+        Data File
+        <br>
+        <input type="file">
+    </div>
+  
+  </section>
+  
+  <hr />
+  
+  <section class="container">
+  
+    <div>
+        Company Picture
+        <br>
+        <input imgPreview type="file">
+        <!-- <input #img type="file"> -->
+        
+    </div>
+  
+    <div class="img-container hide">
+        <img>
+    </div>
+  
+  </section>
+
   <footer>
     <!-- <ul id="menu">
       <li #teset>Home</li>
@@ -546,4 +599,9 @@
   </footer>
 </div>
 
+
+
+
+
 <router-outlet></router-outlet>
+

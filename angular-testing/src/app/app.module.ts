@@ -25,7 +25,7 @@ import { HelloComponent } from './hello/hello.component';
 import { GreetComponent } from './greet/greet.component';
 import { GreetcComponent } from './greetc/greetc.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AppcComponent, ImgPreviewDirective } from './pages/appc/appc.component';
+import { AppcComponent } from './pages/appc/appc.component';
 import { TreeNodeComponent } from './pages/tree-node/tree-node.component';
 import { PostComponent } from './pages/post/post.component';
 import { PhotoCardComponent } from './pages/photo-card/photo-card.component';
@@ -34,6 +34,7 @@ import { ListComponent } from './pages/list/list.component';
 import { ItemComponent } from './pages/item/item.component';
 import { ColorDirective, ListTypeDirective } from './directives/item-directives';
 import { AppListOneComponent } from './pages/app-list-one/app-list-one.component';
+import { ImgPreviewDirective } from './directives/imgpr.directive';
 @NgModule({
   declarations: [
     ListTypeDirective,

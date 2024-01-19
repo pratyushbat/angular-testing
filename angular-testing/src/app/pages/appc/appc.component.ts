@@ -1,10 +1,7 @@
 import { AfterViewInit, Component, Directive, ElementRef, QueryList, ViewChildren } from '@angular/core';
-@Directive({
-  selector: "[imgPreview]",
-})
-export class ImgPreviewDirective {
-  constructor(public readonly elemRef: ElementRef) { }
-}
+import { ImgPreviewDirective } from 'src/app/directives/imgpr.directive';
+
+
 @Component({
   selector: 'app-appc',
   templateUrl: './appc.component.html',
