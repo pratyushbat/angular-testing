@@ -19,9 +19,11 @@ import { LIST_TYPE } from 'src/app/enums/list-type.enum';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements AfterViewInit  {
+export class ListComponent implements AfterViewInit {
+  @ViewChild(ItemComponent, { read: ElementRef })
+  itemx!: ElementRef<HTMLElement>;
   // @ViewChild(ItemComponent , {read: ElementRef}) item!: ElementRef<HTMLElement>;
   // @ViewChild(ItemComponent , {read: ColorDirective}) item!: ColorDirective;
   // @ViewChild(ItemComponent , {read: ListTypeDirective}) item!: ListTypeDirective;
@@ -62,14 +64,12 @@ export class ListComponent implements AfterViewInit  {
   items7!: QueryList<ListTypeDirective>;
   @ViewChildren('id,title', { read: ItemComponent })
   items8!: QueryList<ItemComponent>;
-  @ViewChildren('item ,namedItem')  items9!: QueryList<ItemComponent>;
+  @ViewChildren('item ,namedItem') items9!: QueryList<ItemComponent>;
   constructor() {}
-
- 
 
   ngAfterViewInit(): void {
     console.log('list :::', this.item);
-    this.item2.apply('green');
+    setTimeout(() => this.item2.apply('green'), 1000);
     this.item3.getItems().subscribe(console.log);
     console.log('item4 namedItem ', this.item4.value);
     console.log('item5 namedItem :: title', this.item5);
@@ -87,6 +87,10 @@ export class ListComponent implements AfterViewInit  {
     //   this.item.apply(LIST_TYPE.DASH)
     // })
 
+    // setTimeout(() => {
+    //   this.itemx.nativeElement.classList.add('itemx');
+    // });
+
     this.items.forEach((item) => console.log(item));
     this.items2.forEach((item: any) => {
       console.log(item);
@@ -95,20 +99,25 @@ export class ListComponent implements AfterViewInit  {
       console.log(item.value);
     });
     const colors = ['pink', 'blue'];
-    this.items4.forEach((color, index) => color.apply(colors[index]));
+    this.items4.forEach((color, index) => {
+      setTimeout(() => color.apply(colors[index]), 2000);
+      console.log(color, index);
+    });
 
     // this.items5.forEach((item: any) =>
     //   item.nativeElement.classList.add('text-blue')
     // );
-    this.items6.forEach((item: ItemService) =>
-      item.getItems().subscribe(console.log)
-    );
-    const types = [LIST_TYPE.BULLET, LIST_TYPE.DASH];
+    // this.items6.forEach((item: ItemService) =>
+    //   item.getItems().subscribe(console.log)
+    // );
+    const types = [LIST_TYPE.BULLET, LIST_TYPE.BULLET];
 
     this.items7.forEach((listType, index) => {
+      // listType.apply(types[index]);
       setTimeout(() => {
+        console.log(listType, index, types[index]);
         listType.apply(types[index]);
-      });
+      }, 3000);
     });
     console.log(this.items8);
     console.log(this.items9);

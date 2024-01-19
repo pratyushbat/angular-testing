@@ -443,7 +443,7 @@
   <div style="margin-top: 100px">
     <!-- <app-marvel>
       <app-movie  [movie]="movie" >
-        
+
       </app-movie>
     </app-marvel> -->
   </div>
@@ -523,13 +523,13 @@
     <app-post [postOptions]="commentOptions"></app-post>
   </div>
 
-  <!-- <div style="margin-top: 100px"></div> -->
-  <!-- <section>
+  <div style="margin-top: 100px"></div>
+  <section>
     <app-list></app-list>
-  </section> -->
+  </section>
   <!-- <div style="margin-top: 100px"></div> -->
   <!-- <section> -->
-    <!-- <app-app-list-one>
+  <!-- <app-app-list-one>
       <app-item  #namedItem color listType value="Projected Ajit">
         <app-item    color listType value="Ajit child one two"></app-item>
       </app-item>
@@ -537,53 +537,42 @@
     </app-app-list-one> -->
   <!-- </section> -->
 
+  <section class="container">
+    <div>
+      Picture
+      <br />
+      <input imgPreview type="file" />
+      <!-- <input #img type="file"> -->
+    </div>
+
+    <div class="img-container hide">
+      <img />
+    </div>
+  </section>
+
+  <hr />
 
   <section class="container">
+    <div>
+      Data File
+      <br />
+      <input type="file" />
+    </div>
+  </section>
 
-    <div>
-        Picture
-        <br>
-        <input imgPreview type="file">
-        <!-- <input #img type="file"> -->
-      </div>
-  
-  
-    <div class="img-container hide">
-        <img>
-    </div>
-  
-  
-  </section>
-  
-  
   <hr />
-  
+
   <section class="container">
-  
     <div>
-        Data File
-        <br>
-        <input type="file">
+      Company Picture
+      <br />
+      <input imgPreview type="file" />
+      <!-- <input #img type="file"> -->
     </div>
-  
-  </section>
-  
-  <hr />
-  
-  <section class="container">
-  
-    <div>
-        Company Picture
-        <br>
-        <input imgPreview type="file">
-        <!-- <input #img type="file"> -->
-        
-    </div>
-  
+
     <div class="img-container hide">
-        <img>
+      <img />
     </div>
-  
   </section>
 
   <footer>
@@ -599,9 +588,4 @@
   </footer>
 </div>
 
-
-
-
-
 <router-outlet></router-outlet>
-

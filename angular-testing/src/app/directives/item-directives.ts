@@ -1,13 +1,12 @@
-import { Directive, ElementRef } from "@angular/core";
-import { ItemComponent } from "../pages/item/item.component";
-import { LIST_TYPE } from "../enums/list-type.enum";
-
+import { Directive, ElementRef } from '@angular/core';
+import { ItemComponent } from '../pages/item/item.component';
+import { LIST_TYPE } from '../enums/list-type.enum';
 
 @Directive({
-  selector: "[color]",
+  selector: '[color]',
 })
 export class ColorDirective {
-  public value = "red";
+  public value = 'red';
 
   constructor(private readonly elmRef: ElementRef) {}
 
@@ -15,13 +14,15 @@ export class ColorDirective {
     this.value = color || this.value;
 
     const DOM_ELEMENT = this.elmRef.nativeElement;
-    console.log('DOM',DOM_ELEMENT)
-    DOM_ELEMENT.style.color = this.value;
+    console.log('DOM', DOM_ELEMENT);
+    this.elmRef.nativeElement.style.color = this.value;
+    this.elmRef.nativeElement.style['font-style'] = 'oblique';
+    this.elmRef.nativeElement.style['font-size'] = '60px';
   }
 }
 
 @Directive({
-  selector: "[listType]",
+  selector: '[listType]',
 })
 export class ListTypeDirective {
   private value: LIST_TYPE = LIST_TYPE.DASH;
