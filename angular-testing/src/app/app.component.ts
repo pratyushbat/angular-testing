@@ -14,15 +14,13 @@ import { Movie } from './interfaces/Movie';
 import { UserPost } from './interfaces/post.interface';
 import { POST_TYPE, PostOptions } from './interfaces/post-option.interface';
 import { HttpClient } from '@angular/common/http';
-import { Observable, count } from 'rxjs';
+import { Observable, count, from } from 'rxjs';
 import { ImgPreviewDirective } from './directives/imgpr.directive';
 
 interface TreeNode {
   name: string;
   techList?: TreeNode[];
 }
-
-
 
 @Directive({
   selector: '[fileInput]',
@@ -36,10 +34,6 @@ export class FileDirective {
   selector: '[fileDIInput]',
 })
 export class FileDIDirective {
-
-
-
-  
   constructor(public elmRef: ElementRef) {
     //console.log('---------', this.elmRef.nativeElement.files)
   }
@@ -71,69 +65,77 @@ function http(consumer: any, isPromise = false) {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit, OnInit {
+  phone = '9998889999';
+  trimLength: string | number = 3;
+  pattern = '-';
+  username!: string;
+  twitterLink = 'http://www.twitter.com/rakesh';
+  emailone: string = 'pratyush@gmail.com';
+
+  names = ['Ronaldo', 'Ajit', 'Sagar', 'Anusha', 'Aniket', 'Pankaj', 'Amitabh'];
+
+  filterKey!: string;
+
+  sortKey: 'asc' | 'desc' | string = 'asc';
+
+  addName(name: string): void {
+    if (!name || !name?.trim().length) {
+      return;
+    }
+
+    this.names.push(name);
+  }
+
   ngOnInit(): void {
-    let  acloc=[1,4,6,94,5,4];
+    let acloc = [1, 4, 6, 94, 5, 4];
     this.sumofArray(acloc);
     // check if 4 is present in array
 
     this.obsandPromise();
   }
 
- sumofArray(arr:any[]){
-  let p = this.sumA(arr,0);
-  console.log('sumA',p)
-  let ap = this.checknumpresent(arr,0,4);
-  console.log('checknumpresent',ap)
-  let allindnum = this.allindnum(arr,0,4);
-  console.log('allindnum',allindnum)
-  
-}
+  sumofArray(arr: any[]) {
+    let p = this.sumA(arr, 0);
+    console.log('sumA', p);
+    let ap = this.checknumpresent(arr, 0, 4);
+    console.log('checknumpresent', ap);
+    let allindnum = this.allindnum(arr, 0, 4);
+    console.log('allindnum', allindnum);
+  }
 
- sumA(arr:any[],index:number):any{
-  if(index===arr.length-1)
-    return arr[index];
-    
-  let px= this.sumA(arr,index+1);
-  return px + ':' +arr[index] ;
+  sumA(arr: any[], index: number): any {
+    if (index === arr.length - 1) return arr[index];
 
-}
+    let px = this.sumA(arr, index + 1);
+    return px + ':' + arr[index];
+  }
 
-checknumpresent(arr:any[],index:number,num:number):any{
-  if(index===arr.length-1){
-    if(arr[index]===num)
-    return true 
-    else 
-    return false
-  }    
-    
-  let px= this.checknumpresent(arr,index+1,num);
-  
-   if(arr[index]===num)
-  return true ;
-  else
-  return px;
-}
+  checknumpresent(arr: any[], index: number, num: number): any {
+    if (index === arr.length - 1) {
+      if (arr[index] === num) return true;
+      else return false;
+    }
 
+    let px = this.checknumpresent(arr, index + 1, num);
 
-allindnum(arr:any[],index:number,num:number):any{
-  if(index===arr.length-1){
-    if(arr[index]===num)
-    return [index] ;
-    else 
-    return [];
-  }    
-    
-  let px= this.allindnum(arr,index+1,num);
-  
-   if(arr[index]===num){
-    px.push(index) ;
- 
-    return px ;
-   }
-  
-  else
-  return px;
-}
+    if (arr[index] === num) return true;
+    else return px;
+  }
+
+  allindnum(arr: any[], index: number, num: number): any {
+    if (index === arr.length - 1) {
+      if (arr[index] === num) return [index];
+      else return [];
+    }
+
+    let px = this.allindnum(arr, index + 1, num);
+
+    if (arr[index] === num) {
+      px.push(index);
+
+      return px;
+    } else return px;
+  }
   obsandPromise() {
     const pr2 = new Promise((resolve) => {
       console.log('starting promise', resolve);
@@ -322,11 +324,10 @@ allindnum(arr:any[],index:number,num:number):any{
   // or
   // @ViewChildren(ImgPreviewDirective) imgInpList!: QueryList<ImgPreviewDirective>;
   // or
-  @ViewChildren(ImgPreviewDirective, { read: ElementRef }) imgInpList!: QueryList<ElementRef>;
-  
-  date:any;
-  ngAfterViewInit(): void {
+  @ViewChildren(ImgPreviewDirective, { read: ElementRef })
+  imgInpList!: QueryList<ElementRef>;
 
+  ngAfterViewInit(): void {
     // this.imgInpList.forEach((directive) => {
     //   const inp = directive.elemRef.nativeElement;
     //   console.log('hurray')
@@ -335,15 +336,13 @@ allindnum(arr:any[],index:number,num:number):any{
     //   inp.addEventListener("change", () => this.previewImage(inp));
     // });
 
-    
     this.imgInpList.forEach((elemRef) => {
       const inp = elemRef.nativeElement;
-      console.log('hurray')
-      console.log(inp)
+      console.log('hurray');
+      console.log(inp);
 
-      inp.addEventListener("change", () => this.previewImage(inp));
+      inp.addEventListener('change', () => this.previewImage(inp));
     });
-
 
     //console.log(this.techList)
 
@@ -353,14 +352,14 @@ allindnum(arr:any[],index:number,num:number):any{
     });
     const inpt: any = this.inpRef.nativeElement;
     inpt.addEventListener('change', () => {
-      console.log('changed0 ::', inpt.files);     
+      console.log('changed0 ::', inpt.files);
     });
 
     //console.log(this.inpRefDI.elmRef.nativeElement)
     const inptDI: any = this.inpRefDI.elmRef.nativeElement;
     inptDI.addEventListener('change', () => {
       //console.log('changing')
-      console.log('changed using DI directive', inptDI.files)
+      console.log('changed using DI directive', inptDI.files);
     });
 
     const template = this.section.nativeElement;
@@ -371,18 +370,18 @@ allindnum(arr:any[],index:number,num:number):any{
   }
 
   private previewImage(inpElement: HTMLInputElement) {
-    console.log(inpElement)
+    console.log(inpElement);
     const file = inpElement.files?.item(0);
     const inputContainer = inpElement.parentElement;
-    console.log(inputContainer)
+    console.log(inputContainer);
     const imgContainer = inputContainer?.nextElementSibling;
-    console.log(imgContainer)
+    console.log(imgContainer);
     const imgTag = imgContainer?.firstElementChild as HTMLImageElement;
-    console.log(imgTag)
+    console.log(imgTag);
     const fileReader = new FileReader();
 
     fileReader.onloadend = (evt) => {
-      imgContainer?.classList.remove("hide");
+      imgContainer?.classList.remove('hide');
 
       imgTag.src = evt.target?.result as string;
     };
@@ -569,6 +568,20 @@ allindnum(arr:any[],index:number,num:number):any{
 
   addItem(ev: any) {
     //console.log('app', ev)
+  }
+
+  ngusers: any[] = [];
+  getUser(value: string) {
+    this.http(value).subscribe((res) => {
+      console.log('-----------------user');
+      if (res) this.ngusers.push(res);
+      console.log(res);
+    });
+  }
+
+  private http(id: any): Observable<any> {
+    const url = 'https://jsonplaceholder.typicode.com/users/' + id;
+    return from(fetch(url).then((res) => res.json()));
   }
 }
 

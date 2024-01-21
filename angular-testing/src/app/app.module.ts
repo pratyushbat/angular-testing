@@ -10,7 +10,10 @@ import { DepartmentComponent } from './pages/department/department.component';
 import { DepartmentgsComponent } from './pages/departmentgs/departmentgs.component';
 import { DepartmentgsdecComponent } from './pages/departmentgsdec/departmentgsdec.component';
 import { UsercdecComponent } from './pages/usercdec/usercdec.component';
-import { FileInput, FileinputComponent } from './pages/fileinput/fileinput.component';
+import {
+  FileInput,
+  FileinputComponent,
+} from './pages/fileinput/fileinput.component';
 import { SliderComponent } from './pages/slider/slider.component';
 import { PhotoPreviewComponent } from './pages/photo-preview/photo-preview.component';
 import { PhotoListComponent } from './pages/multiplechildren/photo-list/photo-list.component';
@@ -32,12 +35,24 @@ import { PhotoCardComponent } from './pages/photo-card/photo-card.component';
 import { PostCardComponent } from './pages/post-card/post-card.component';
 import { ListComponent } from './pages/list/list.component';
 import { ItemComponent } from './pages/item/item.component';
-import { ColorDirective, ListTypeDirective } from './directives/item-directives';
+import {
+  ColorDirective,
+  ListTypeDirective,
+} from './directives/item-directives';
 import { AppListOneComponent } from './pages/app-list-one/app-list-one.component';
 import { ImgPreviewDirective } from './directives/imgpr.directive';
-import { DateStatePipe } from './directives/date-state.pipe';
+import { NgcuserComponent } from './pages/ngcuser/ngcuser.component';
+import { AgePipe, PhonePipe, SafeEmailPipe, TwitterPipe } from './pipes';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 @NgModule({
   declarations: [
+    SafeEmailPipe,
+    FilterPipe,
+    SortPipe,
+    AgePipe,
+    PhonePipe,
+    TwitterPipe,
     ListTypeDirective,
     ColorDirective,
     AppComponent,
@@ -74,14 +89,10 @@ import { DateStatePipe } from './directives/date-state.pipe';
     ListComponent,
     ItemComponent,
     AppListOneComponent,
-    DateStatePipe
+    NgcuserComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
