@@ -35,6 +35,7 @@ import { ItemComponent } from './pages/item/item.component';
 import { ColorDirective, ListTypeDirective } from './directives/item-directives';
 import { AppListOneComponent } from './pages/app-list-one/app-list-one.component';
 import { ImgPreviewDirective } from './directives/imgpr.directive';
+import { DateStatePipe } from './directives/date-state.pipe';
 @NgModule({
   declarations: [
     ListTypeDirective,
@@ -72,7 +73,8 @@ import { ImgPreviewDirective } from './directives/imgpr.directive';
     PostCardComponent,
     ListComponent,
     ItemComponent,
-    AppListOneComponent
+    AppListOneComponent,
+    DateStatePipe
   ],
   imports: [
     BrowserModule,

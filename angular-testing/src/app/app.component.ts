@@ -324,6 +324,7 @@ allindnum(arr:any[],index:number,num:number):any{
   // or
   @ViewChildren(ImgPreviewDirective, { read: ElementRef }) imgInpList!: QueryList<ElementRef>;
   
+  date:any;
   ngAfterViewInit(): void {
 
     // this.imgInpList.forEach((directive) => {
