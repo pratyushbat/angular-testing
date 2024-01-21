@@ -326,7 +326,13 @@ export class AppComponent implements AfterViewInit, OnInit {
   // or
   @ViewChildren(ImgPreviewDirective, { read: ElementRef })
   imgInpList!: QueryList<ElementRef>;
+  timeInMs!: number;
 
+  isDestroyed = false;
+
+  setTimeInMs(seconds: string | number) {
+    this.timeInMs = +seconds * 1000;
+  }
   ngAfterViewInit(): void {
     // this.imgInpList.forEach((directive) => {
     //   const inp = directive.elemRef.nativeElement;
