@@ -630,23 +630,24 @@
   </section>
 
   <section>
-    <input type="text" #dateInp (keyup.enter)="date = dateInp.value" />
-    Differnet Since LaST dATE
-    {{ date | dateState }} days
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          Rate of Increment
+          <br />
+          <small>1 count / {{ timeInMs }} ms </small>
+        </p>
 
-    <input #name (keyup.enter)="changeName(name.value); name.value = ''" />
+        <input #time (keyup.enter)="setTimeInMs(time.value); time.value = ''" />
+
+        <p *ngIf="!isDestroyed">Completed {{ timeInMs | timer }} %</p>
+
+        <button (click)="isDestroyed = !isDestroyed">Toggle Pipe</button>
+        <!-- {{date | dateState}} days -->
+      </div>
+    </div>
 
     <br />
-
-    Name: {{ user.name }}
-
-    <br />
-
-    Email: {{ user.email }}
-
-    <br />
-
-    <img [src]="user | userPicture" />
   </section>
 
   <footer>

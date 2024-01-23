@@ -45,13 +45,12 @@ import { NgcuserComponent } from './pages/ngcuser/ngcuser.component';
 import { AgePipe, PhonePipe, SafeEmailPipe, TwitterPipe } from './pipes';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
-import { UserPicturePipe } from './pipes/user-picture.pipe';
 import { DateStatePipe } from './pipes/date-state.pipe';
+import { TimerPipe } from './pipes/timer.pipe';
 @NgModule({
   declarations: [
     SafeEmailPipe,
-    UserPicturePipe,
-    DateStatePipe,
+    TimerPipe,
     FilterPipe,
     SortPipe,
     AgePipe,
@@ -94,6 +93,7 @@ import { DateStatePipe } from './pipes/date-state.pipe';
     ItemComponent,
     AppListOneComponent,
     NgcuserComponent,
+    DateStatePipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
