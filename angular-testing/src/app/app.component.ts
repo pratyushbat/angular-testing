@@ -16,6 +16,7 @@ import { POST_TYPE, PostOptions } from './interfaces/post-option.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable, count, from } from 'rxjs';
 import { ImgPreviewDirective } from './directives/imgpr.directive';
+import { User } from './directives/user.interface';
 
 interface TreeNode {
   name: string;
@@ -65,6 +66,30 @@ function http(consumer: any, isPromise = false) {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit, OnInit {
+  date: any;
+  // pipe
+  user: User = {
+    name: 'Ajit',
+    id: 1,
+    email: 'some@mail.com',
+
+    // NOTE: uncomment below code to use the picture in `userPicture` pipe
+
+    // picture: {
+    //   name: "xyz",
+    //   link: "https://picsum.photos/seed/2/200",
+    // },
+  };
+
+  changeName(name: string) {
+    if (!name || !name.trim().length) {
+      return;
+    }
+
+    this.user.name = name;
+  }
+
+  // pipe cache
   phone = '9998889999';
   trimLength: string | number = 3;
   pattern = '-';
