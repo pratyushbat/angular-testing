@@ -14,7 +14,7 @@ import { Movie } from './interfaces/Movie';
 import { UserPost } from './interfaces/post.interface';
 import { POST_TYPE, PostOptions } from './interfaces/post-option.interface';
 import { HttpClient } from '@angular/common/http';
-import { Observable, count, from } from 'rxjs';
+import { Observable, count, from, of } from 'rxjs';
 import { ImgPreviewDirective } from './directives/imgpr.directive';
 import { User } from './directives/user.interface';
 
@@ -72,6 +72,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     name: 'Ajit',
     id: 1,
     email: 'some@mail.com',
+    picture: { name: 'xyz', link: 'https://picsum.photos/200/300' },
 
     // NOTE: uncomment below code to use the picture in `userPicture` pipe
 
@@ -117,6 +118,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     // check if 4 is present in array
 
     this.obsandPromise();
+    getTripData().subscribe((x: Trip) => (this.trip = x));
   }
 
   sumofArray(arr: any[]) {
@@ -614,8 +616,22 @@ export class AppComponent implements AfterViewInit, OnInit {
     const url = 'https://jsonplaceholder.typicode.com/users/' + id;
     return from(fetch(url).then((res) => res.json()));
   }
+
+  trip!: Trip;
+  rateCharge(distance: number = 0) {
+    console.log('called with', distance);
+    if (distance <= 50) return distance * 8;
+    else if (distance > 50 && distance <= 100) return distance * 9;
+
+    return distance * 12;
+  }
 }
 
+export interface Trip {
+  distance: number;
+  from: string;
+  to: string;
+}
 export class Department {
   name!: string;
   depId!: number;
@@ -627,4 +643,11 @@ export interface Photo {
   name: string;
   src: string;
   description: string;
+}
+function getTripData(): any {
+  var tr: Trip = <Trip>{ distance: 10, from: 'shivam', to: 'mgh' };
+  return of(tr);
+  setTimeout(() => {
+    return of(tr);
+  }, 3000);
 }

@@ -47,6 +47,11 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { DateStatePipe } from './pipes/date-state.pipe';
 import { TimerPipe } from './pipes/timer.pipe';
+import { UserPicturePipe } from './pipes/user-picture.pipe';
+import { MemoizedfnPipe } from './pipes/memoizedfn.pipe';
+import { ClockComponent } from './pages/clock/clock.component';
+import { ClockasyncComponent } from './pages/clockasync/clockasync.component';
+import { PostasyncComponent } from './pages/postasync/postasync.component';
 @NgModule({
   declarations: [
     SafeEmailPipe,
@@ -55,6 +60,7 @@ import { TimerPipe } from './pipes/timer.pipe';
     SortPipe,
     AgePipe,
     PhonePipe,
+    UserPicturePipe,
     TwitterPipe,
     ListTypeDirective,
     ColorDirective,
@@ -94,6 +100,10 @@ import { TimerPipe } from './pipes/timer.pipe';
     AppListOneComponent,
     NgcuserComponent,
     DateStatePipe,
+    MemoizedfnPipe,
+    ClockComponent,
+    ClockasyncComponent,
+    PostasyncComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

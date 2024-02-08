@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'dateState',
 })
 export class DateStatePipe implements PipeTransform {
-  transform(value: unknown, ...args: unknown[]): unknown {
+  transform(timeOrDate: any, ...args: unknown[]): unknown {
     return null;
   }
 }
