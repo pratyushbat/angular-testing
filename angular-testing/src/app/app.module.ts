@@ -52,8 +52,13 @@ import { MemoizedfnPipe } from './pipes/memoizedfn.pipe';
 import { ClockComponent } from './pages/clock/clock.component';
 import { ClockasyncComponent } from './pages/clockasync/clockasync.component';
 import { PostasyncComponent } from './pages/postasync/postasync.component';
+import { FileInputDirective } from './directives/file-input.directive';
+import { PostDirective } from './directives/post.directive';
+import { AppdirecitiveComponent } from './pages/appdirecitive/appdirecitive.component';
+import { ListtempComponent } from './pages/listtemp/listtemp.component';
+import { CompdirDirective } from './directives/compdir.directive';
 @NgModule({
-  declarations: [
+  declarations: [FileInputDirective,
     SafeEmailPipe,
     TimerPipe,
     FilterPipe,
@@ -104,6 +109,10 @@ import { PostasyncComponent } from './pages/postasync/postasync.component';
     ClockComponent,
     ClockasyncComponent,
     PostasyncComponent,
+    PostDirective,
+    AppdirecitiveComponent,
+    ListtempComponent,
+    CompdirDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
