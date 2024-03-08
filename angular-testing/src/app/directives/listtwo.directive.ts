@@ -11,10 +11,10 @@ export class ListtwoDirective {
     private vcref: ViewContainerRef
   ) {
     this.listOperation();
-    console.log('ListtwoDirective elementRef', this.elementRef, this.vcref);
+    // console.log('ListtwoDirective elementRef', this.elementRef, this.vcref);
   }
   private listOperation() {
-    console.log(this.lstB);
+    // console.log(this.lstB);
     setTimeout(() => (this.lstB.isSel = true), 3000);
   }
 }

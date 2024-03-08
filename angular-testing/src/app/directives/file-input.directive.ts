@@ -18,11 +18,38 @@ import { ListtempComponent } from '../pages/listtemp/listtemp.component';
 // @Directive({    selector:"input[type=file],.form-c"})
 @Directive({ selector: '[fileInput]' })
 export class FileInputDirective {
+  inputRef!: HTMLInputElement;
+  value?: File;
+  fileName?: string;
+  fileUrl?: string;
+  isImage: boolean = false;
   constructor(private elemRef: ElementRef, public vcref: ViewContainerRef) {
+    this.inputRef = this.elemRef.nativeElement;
     console.log(
       'File Input Directive Applied on input tag',
-      elemRef.nativeElement
+      this.inputRef,
+      this.vcref
     );
-    console.log(vcref);
+    this.inputRef.addEventListener('change', () => {
+      this.onFileInputChange();
+    });
+  }
+
+  private async onFileInputChange() {
+    const file = this.inputRef.files?.item(0);
+    console.log(file);
+    if (!file) return;
+    this.value = file;
+    this.fileName = file.name;
+    this.isImage = !!file.type.match(/image(\/jpe?g | png | bmp | gif)?/);
+    this.fileUrl = this.isImage ? await this.converToUrl(file) : undefined;
+    console.log(this);
+  }
+  converToUrl(file: File) {
+    return new Promise<string>((resolve, reject) => {
+      const fr = new FileReader();
+      fr.readAsDataURL(file);
+      fr.onload = () => resolve(fr.result as string);
+    });
   }
 }

@@ -14,14 +14,13 @@ export class ListDirective {
     private tref: TemplateRef<any>,
     private vcref: ViewContainerRef
   ) {
-    console.log('ok', this.elementRef.nativeElement);
     // this.listOperation();
-    console.log(
-      'ldref for ng template only',
-      this.elementRef.nativeElement,
-      this.tref,
-      this.vcref
-    );
+    // console.log(
+    //   'ldref for ng template only',
+    //   this.elementRef.nativeElement,
+    //   this.tref,
+    //   this.vcref
+    // );
     // console.log('ldref', this.vcref);
     this.listOpertaionNgTemp();
   }
