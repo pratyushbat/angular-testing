@@ -17,6 +17,6 @@ export class TwitterPipe implements PipeTransform {
   }
 
   private generateUrl(username: string) {
-    return `https://twitter.com/${username.replace(/@/, '')}`;
+    return `https://twitter.com/${username?.replace(/@/, '')}`;
   }
 }

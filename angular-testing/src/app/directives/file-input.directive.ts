@@ -1,4 +1,10 @@
-import { Directive, ElementRef } from "@angular/core";
+import {
+  Directive,
+  ElementRef,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
+import { ListtempComponent } from '../pages/listtemp/listtemp.component';
 
 // @Directive({selector:"input"})
 // @Directive({selector:"[type]"})
@@ -10,7 +16,13 @@ import { Directive, ElementRef } from "@angular/core";
 // @Directive({    selector:"input.form-c[type=file]"})
 // or
 // @Directive({    selector:"input[type=file],.form-c"})
-@Directive({    selector:"[fileInput]"})
-export class FileInputDirective{
-    constructor(private elemRef:ElementRef){ console.log("File Input Directive Applied on input tag",elemRef.nativeElement);}
+@Directive({ selector: '[fileInput]' })
+export class FileInputDirective {
+  constructor(private elemRef: ElementRef, public vcref: ViewContainerRef) {
+    console.log(
+      'File Input Directive Applied on input tag',
+      elemRef.nativeElement
+    );
+    console.log(vcref);
+  }
 }

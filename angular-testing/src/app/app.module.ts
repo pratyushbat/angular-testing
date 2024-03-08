@@ -57,8 +57,12 @@ import { PostDirective } from './directives/post.directive';
 import { AppdirecitiveComponent } from './pages/appdirecitive/appdirecitive.component';
 import { ListtempComponent } from './pages/listtemp/listtemp.component';
 import { CompdirDirective } from './directives/compdir.directive';
+import { ListDirective } from './directives/list.directive';
+import { ListBComponent } from './pages/list-b/list-b.component';
+import { ListtwoDirective } from './directives/listtwo.directive';
 @NgModule({
-  declarations: [FileInputDirective,
+  declarations: [
+    FileInputDirective,
     SafeEmailPipe,
     TimerPipe,
     FilterPipe,
@@ -113,6 +117,9 @@ import { CompdirDirective } from './directives/compdir.directive';
     AppdirecitiveComponent,
     ListtempComponent,
     CompdirDirective,
+    ListDirective,
+    ListBComponent,
+    ListtwoDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
