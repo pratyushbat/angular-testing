@@ -5,15 +5,39 @@
 
 <!-- <input [fileInput]="['pdf', 1]" type="file" class="form-c" />
 <input fileInput="'pdf'" type="file" class="form-c" /> -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-6">
+        <input
+          fileInput
+          size="10000000000"
+          (fileChanged)="onFileChange($event)"
+          (error)="onFileinputError($event)"
+          mime="png"
+          type="file"
+          class="form-c"
+        />
+      </div>
+      <div class="col-md-6">
+        <input
+          fileInput
+          (fileChanged)="onFileChange($event)"
+          (error)="onFileinputError($event)"
+          size="10000000000"
+          [mime]="['png', 'pdf', 'jpg']"
+          type="file"
+          class="form-c"
+        />
+      </div>
 
-<input fileInput size="2" mime="png" type="file" class="form-c" />
-<input
-  fileInput
-  size="0.1"
-  [mime]="['png', 'pdf', 'jpg']"
-  type="file"
-  class="form-c"
-/>
+      <div class="col-md-9">
+        <img *ngIf="imageUrl" [src]="imageUrl" />
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- or -->
 <!-- <input fileInput [size]="1" [mime]="'pdf'" type="file" class="form-c" /> -->
 

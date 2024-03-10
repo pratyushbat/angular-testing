@@ -1,9 +1,15 @@
+export interface FileChangedEvent {
+  file: File;
+  url?: string;
+}
 import {
   Directive,
   ElementRef,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges,
   TemplateRef,
   ViewContainerRef,
@@ -27,6 +33,12 @@ export class FileInputDirective implements OnInit {
     } else if (typeof mimeorTuple === 'string' && mimeorTuple?.trim().length)
       this.mime = mimeorTuple;
   }
+
+  @Output()
+  fileChanged = new EventEmitter<FileChangedEvent>();
+
+  @Output()
+  error = new EventEmitter<string>();
 
   inputRef!: HTMLInputElement;
   value?: File;
@@ -52,27 +64,27 @@ export class FileInputDirective implements OnInit {
     console.log(validationRes);
     if (!validationRes.isValid) {
       this.clean();
+      this.error.emit(validationRes.message);
       return;
     }
     this.fileName = file.name;
     this.isImage = !!file.type.match(/image(\/jpe?g | png | bmp | gif)?/);
-    this.fileUrl = this.isImage ? await this.converToUrl(file) : undefined;
-    console.log(
-      'no getter so ',
-      this.mime,
-      'so use ',
-      this._mime,
-      this.allowedSize,
-      this
-    );
-  }
-  clean() {
-    this.value = undefined;
-    this.inputRef.value = null as unknown as string;
-    this.isImage = false;
-    this.fileName = undefined;
-    this.fileUrl = undefined;
-    console.log(this);
+    try {
+      this.fileUrl = this.isImage ? await this.converToUrl(file) : undefined;
+      console.log(
+        'no getter so ',
+        this.mime,
+        'so use ',
+        this._mime,
+        this.allowedSize,
+        this
+      );
+      this.fileChanged.emit({ file, url: this.fileUrl });
+    } catch (error: any) {
+      this.clean();
+
+      console.log('error catch in try cathc', error);
+    }
   }
 
   converToUrl(file: File) {
@@ -82,9 +94,20 @@ export class FileInputDirective implements OnInit {
       fr.onload = () => {
         console.log(fr.result);
         resolve(fr.result as string);
+        // reject('BAD METHIOD');
       };
     });
   }
+
+  clean() {
+    this.value = undefined;
+    this.inputRef.value = null as unknown as string;
+    this.isImage = false;
+    this.fileName = undefined;
+    this.fileUrl = undefined;
+    console.log(this);
+  }
+
   validateFile(file: File) {
     const fileType = file.type;
     const fileSize = +((file.size / 1024) * 1024).toFixed(2);
