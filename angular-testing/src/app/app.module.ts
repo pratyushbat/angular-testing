@@ -60,6 +60,8 @@ import { CompdirDirective } from './directives/compdir.directive';
 import { ListDirective } from './directives/list.directive';
 import { ListBComponent } from './pages/list-b/list-b.component';
 import { ListtwoDirective } from './directives/listtwo.directive';
+import { FileinputdiroriginaloldDirective } from './directives/fileinputdiroriginalold.directive';
+import { FileinputdirusingnameDirective } from './directives/fileinputdirusingname.directive';
 @NgModule({
   declarations: [
     FileInputDirective,
@@ -120,6 +122,8 @@ import { ListtwoDirective } from './directives/listtwo.directive';
     ListDirective,
     ListBComponent,
     ListtwoDirective,
+    FileinputdiroriginaloldDirective,
+    FileinputdirusingnameDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

@@ -379,8 +379,8 @@ export class AppComponent implements AfterViewInit, OnInit {
 
     //console.log(this.techList)
 
-    const inptDr: any = this.inpRef2Dr.nativeElement;
-    inptDr.addEventListener('change', () => {
+    const inptDr: any = this.inpRef2Dr?.nativeElement;
+    inptDr?.addEventListener('change', () => {
       //console.log('changed using directive', inptDr.files)
     });
     const inpt: any = this.inpRef.nativeElement;

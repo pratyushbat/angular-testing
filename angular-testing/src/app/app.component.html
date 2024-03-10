@@ -1,27 +1,27 @@
 <router-outlet></router-outlet>
 
-<app-postasync id="2"></app-postasync>
+<!-- <app-postasync id="2"></app-postasync> -->
 <div style="margin-top: 100px"></div>
 <div style="margin-top: 100px"></div>
 <div style="margin-top: 100px" class="content" role="main">
   <!-- Highlight Card -->
-  <div class="card highlight-card card-small">
+  <!-- <div class="card highlight-card card-small">
     <span>{{ title }} app is running!</span>
-  </div>
+  </div> -->
 
   <!-- Terminal -->
 
   <!-- Links -->
-  <h1>67 vid user</h1>
+  <!-- <h1>67 vid user</h1>
   Search User User Id
   <input type="text" #userId (keyup.enter)="getUser(userId.value)" />
 
-  <app-ngcuser [users]="ngusers"></app-ngcuser>
+  <app-ngcuser [users]="ngusers"></app-ngcuser> -->
 
   <br />
   <br />
 
-  <div class="card-container">
+  <!-- <div class="card-container">
     <select (change)="onIdSelection(selectedid.value)" #selectedid>
       <option selected disabled>No id selected</option>
       <option [value]="id" *ngFor="let id of userIds">{{ id }}</option>
@@ -30,15 +30,16 @@
   <app-user [userId]="selectedId"></app-user>
   <br />
   Name: <input type="text" (keyup.enter)="(0)" #name /> dob:
-  <input type="text" (keyup.enter)="(0)" #dob />
+  <input type="text" (keyup.enter)="(0)" #dob /> -->
   <!-- <app-userc [namex]="name.value" [dob]="dob.value" [user]="user" *ngFor="let user of user ns" (nameEvt)="onNameChange($event)"></app-userc> -->
-  <app-usercdec
+
+  <!-- <app-usercdec
     [namex]="name.value"
     [dob]="dob.value"
     [user]="user"
     *ngFor="let user of users"
     (nameEvt)="onNameChange($event)"
-  ></app-usercdec>
+  ></app-usercdec> -->
   <!-- Footer -->
 
   ..................................................................................................
@@ -73,14 +74,16 @@
   </app-fileinput>
   <!-- slider -->
   <!-- one child -->
-  <div class="row">
+
+  <!-- <div class="row">
     <app-slider [photos]="photos">
       <app-photo-preview [selectedPhoto]="photos[2]"></app-photo-preview>
     </app-slider>
-  </div>
+  </div> -->
 
   <!-- multiple children -->
-  <div style="margin-top: 100px">
+
+  <!-- <div style="margin-top: 100px">
     <app-photo-list>
       <app-photo
         *ngFor="let photo of photos"
@@ -89,7 +92,7 @@
       >
       </app-photo>
     </app-photo-list>
-  </div>
+  </div> -->
 
   <!-- multiple children -->
   <!-- department -->
@@ -157,9 +160,9 @@
 
   <!-- <app-appc></app-appc> -->
   <div style="margin-top: 100px"></div>
-  <app-tree-node *ngFor="let node of nodes" [node]="node"></app-tree-node>
+  <!-- <app-tree-node *ngFor="let node of nodes" [node]="node"></app-tree-node> -->
   <div style="margin-top: 100px"></div>
-  <section>
+  <!-- <section>
     <div>
       <app-photo-card></app-photo-card>
     </div>
@@ -181,15 +184,15 @@
   <div style="margin-top: 100px"></div>
   <section>
     <app-list></app-list>
-  </section>
+  </section> -->
   <!-- <div style="margin-top: 100px"></div> -->
   <!-- <section> -->
-  <app-app-list-one>
+  <!-- <app-app-list-one>
     <app-item #namedItem color listType value="Projected Ajit">
       <app-item color listType value="Ajit child one two"></app-item>
     </app-item>
     <app-item #item color listType value="Shivam two"></app-item>
-  </app-app-list-one>
+  </app-app-list-one> -->
   <!-- </section> -->
 
   <section class="container">
@@ -230,7 +233,7 @@
     </div>
   </section>
 
-  <section>
+  <!-- <section>
     {{ emailone | safeEmail }}
     <p>{{ "09/30/1994" | age }}</p>
     <br />
@@ -281,7 +284,7 @@
         {{ name }}
       </p>
     </div>
-  </section>
+  </section> -->
 
   <section>
     <div class="row">

@@ -1,7 +1,23 @@
 <!-- <input class="form-c" type="text " />
 <input type="file" class="form-2c" /> -->
 
-<input fileInput type="file" class="form-c" />
+<!-- <input fileInput type="file" class="form-c" /> -->
+
+<!-- <input [fileInput]="['pdf', 1]" type="file" class="form-c" />
+<input fileInput="'pdf'" type="file" class="form-c" /> -->
+
+<input fileInput size="2" mime="png" type="file" class="form-c" />
+<input
+  fileInput
+  size="0.1"
+  [mime]="['png', 'pdf', 'jpg']"
+  type="file"
+  class="form-c"
+/>
+<!-- or -->
+<!-- <input fileInput [size]="1" [mime]="'pdf'" type="file" class="form-c" /> -->
+
+<!-- <input type="checkbox" class="form-c1" />   -->
 <!-- <app-listtemp fileInput></app-listtemp> -->
 
 <!-- <ul list>
@@ -11,4 +27,4 @@
 </ul> -->
 <app-list-b listtwo></app-list-b>
 
-<ng-template list> <h1>header is newly created fron ng</h1></ng-template>
+<!-- <ng-template list> <h1>header is newly created fron ng</h1></ng-template> -->
