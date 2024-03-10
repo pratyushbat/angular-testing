@@ -16,8 +16,8 @@ import {
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
-@Directive({ selector: '[fileInput]', exportAs: 'fileInput' })
-export class FileInputDirective implements OnInit {
+@Directive({ selector: '[appFileinputwithexportas]', exportAs: 'fileInput' })
+export class FileinputwithexportasDirective implements OnInit {
   private _mime: string[] = [];
   @Input()
   set mime(valueOrlist: string | string[]) {

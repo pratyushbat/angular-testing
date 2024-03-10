@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import { FileChangedEvent } from 'src/app/directives/file-input.directive';
+import { Component, ViewChild } from '@angular/core';
+import {
+  FileChangedEvent,
+  FileInputDirective,
+} from 'src/app/directives/file-input.directive';
 
 @Component({
   selector: 'app-appdirecitive',
@@ -7,6 +10,8 @@ import { FileChangedEvent } from 'src/app/directives/file-input.directive';
   styleUrls: ['./appdirecitive.component.scss'],
 })
 export class AppdirecitiveComponent {
+  @ViewChild(FileInputDirective) inputDirective!: FileInputDirective;
+
   imageUrl!: string | undefined;
 
   onFileChange(ev: FileChangedEvent) {

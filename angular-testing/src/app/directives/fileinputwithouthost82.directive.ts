@@ -6,8 +6,6 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
-  HostBinding,
-  HostListener,
   Input,
   OnChanges,
   OnInit,
@@ -16,8 +14,8 @@ import {
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
-@Directive({ selector: '[fileInput]', exportAs: 'fileInput' })
-export class FileInputDirective implements OnInit {
+@Directive({ selector: '[appFileinputwithouthost82]' })
+export class Fileinputwithouthost82Directive implements OnInit {
   private _mime: string[] = [];
   @Input()
   set mime(valueOrlist: string | string[]) {
@@ -53,18 +51,13 @@ export class FileInputDirective implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.inputRef.addEventListener('change', () => {
-    //   this.onFileInputChange();
-    // });
+    this.inputRef.addEventListener('change', () => {
+      this.onFileInputChange();
+    });
   }
 
-  // no need to do in ng on init SS EVENT LISTENER
-  @HostListener('change', ['$event.target.files'])
-  private async onFileInputChange(files: FileList) {
-    console.log(files);
-
-    // const file = this.inputRef.files?.item(0);
-    const file = files?.item(0);
+  private async onFileInputChange() {
+    const file = this.inputRef.files?.item(0);
     if (!file) return;
     this.value = file;
     const validationRes = this.validateFile(file);
@@ -92,18 +85,6 @@ export class FileInputDirective implements OnInit {
 
       console.log('error catch in try cathc', error);
     }
-  }
-
-  // @HostBinding('style.display') //return style.display=none
-  // get styleDisplay() {
-  //   console.log(this.value);
-  //   return !!this.value ? 'none' : 'block';
-  // }
-
-  @HostBinding('class.hide') //return class.hide=true
-  get gethide() {
-    console.log(this.value);
-    return !!this.value;
   }
 
   converToUrl(file: File) {
@@ -155,13 +136,5 @@ export class FileInputDirective implements OnInit {
     return {
       isValid: true,
     };
-  }
-
-  triggerChange() {
-    this.inputRef.click();
-  }
-
-  removeFile() {
-    this.clean();
   }
 }

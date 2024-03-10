@@ -62,6 +62,9 @@ import { ListBComponent } from './pages/list-b/list-b.component';
 import { ListtwoDirective } from './directives/listtwo.directive';
 import { FileinputdiroriginaloldDirective } from './directives/fileinputdiroriginalold.directive';
 import { FileinputdirusingnameDirective } from './directives/fileinputdirusingname.directive';
+import { Fileinputwithouthost82Directive } from './directives/fileinputwithouthost82.directive';
+import { FileinputwithexportasDirective } from './directives/fileinputwithexportas.directive';
+import { AppdirectivewithexportasComponent } from './pages/appdirectivewithexportas/appdirectivewithexportas.component';
 @NgModule({
   declarations: [
     FileInputDirective,
@@ -124,6 +127,9 @@ import { FileinputdirusingnameDirective } from './directives/fileinputdirusingna
     ListtwoDirective,
     FileinputdiroriginaloldDirective,
     FileinputdirusingnameDirective,
+    Fileinputwithouthost82Directive,
+    FileinputwithexportasDirective,
+    AppdirectivewithexportasComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

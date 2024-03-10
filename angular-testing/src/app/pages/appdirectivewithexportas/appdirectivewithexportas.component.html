@@ -42,15 +42,8 @@
             <div class="file-preview">{{ file.fileName }}</div>
           </ng-template>
           <div>
-            <!-- change using exportas -->
-            <!-- <button (click)="file.triggerChange()">change</button>
-            <button (click)="file.removeFile()">remove</button> -->
-            <button (click)="inputDirective.triggerChange()">
-              change using viewchild
-            </button>
-            <button (click)="inputDirective.removeFile()">
-              remove using viewchild
-            </button>
+            <button (click)="file.triggerChange()">change</button>
+            <button (click)="file.removeFile()">remove</button>
           </div>
         </section>
       </div>
