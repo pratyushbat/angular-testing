@@ -65,6 +65,8 @@ import { FileinputdirusingnameDirective } from './directives/fileinputdirusingna
 import { Fileinputwithouthost82Directive } from './directives/fileinputwithouthost82.directive';
 import { FileinputwithexportasDirective } from './directives/fileinputwithexportas.directive';
 import { AppdirectivewithexportasComponent } from './pages/appdirectivewithexportas/appdirectivewithexportas.component';
+import { TrimlengthDirective } from './directives/trimlength.directive';
+import { UppercaseDirective } from './directives/uppercase.directive';
 @NgModule({
   declarations: [
     FileInputDirective,
@@ -130,6 +132,8 @@ import { AppdirectivewithexportasComponent } from './pages/appdirectivewithexpor
     Fileinputwithouthost82Directive,
     FileinputwithexportasDirective,
     AppdirectivewithexportasComponent,
+    TrimlengthDirective,
+    UppercaseDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

@@ -9,6 +9,15 @@
   <div class="col-md-12">
     <div class="row">
       <div class="col-md-3">
+        <input
+          type="text"
+          [trimLength]="5"
+          [trimLengthPattern]="'^[a-zA-z].*'"
+          (valueTrimmed)="onValueTrim($event)"
+          upperCase
+          [upperCasePattern]="'^[a-zA-Z].*'"
+          (caseConvertion)="onCaseConvertion($event)"
+        />
         <!-- <input
           fileInput
           size="10000000000"

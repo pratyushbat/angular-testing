@@ -24,4 +24,12 @@ export class AppdirecitiveComponent {
     alert(ev);
     this.imageUrl = undefined;
   }
+
+  onValueTrim(isTrimmed: boolean): void {
+    console.log('Value trimmed', isTrimmed);
+  }
+
+  onCaseConvertion(isConverted: boolean): void {
+    console.log('Case converted', isConverted);
+  }
 }
