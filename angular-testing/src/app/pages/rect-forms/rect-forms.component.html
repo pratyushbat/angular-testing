@@ -1,0 +1,114 @@
+<p class="lead">Creating Curriculum Vitae!</p>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <form [formGroup]="cvForm" (reset)="onReset($event)" (ngSubmit)="onSubmit($event)">
+            <div class="form-group row mt-4 mb-4">
+                <div class="col-sm-10 offset-sm-1">
+                    <legend class="border-bottom">Personal details</legend>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-3 col-form-label text-right">
+                    Email<sup class="text-danger">*</sup>
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" formControlName="email" class="form-control" id="staticEmail" placeholder="Email"
+                        [ngClass]="{'is-invalid': cvForm.controls.email.dirty && cvForm.controls.email.invalid}">
+                    <div class="is-invalid text-danger mt-1"
+                        *ngIf="cvForm.controls.email.dirty && cvForm.controls.email.invalid">Email is required!</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label text-right">
+                    Password<sup class="text-danger">*</sup>
+                </label>
+                <div class="col-sm-8">
+                    <input type="password" formControlName="password" class="form-control" id="inputPassword"
+                        placeholder="Password"
+                        [ngClass]="{'is-invalid': cvForm.controls.password.dirty && cvForm.controls.password.invalid}">
+                    <div class="is-invalid text-danger mt-1"
+                        *ngIf="cvForm.controls.password.dirty && cvForm.controls.password.invalid">Password is required!
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="confirmPassword" class="col-sm-3 col-form-label text-right">
+                    Confirm password<sup class="text-danger">*</sup>
+                </label>
+                <div class="col-sm-8">
+                    <input type="password" formControlName="confirm_password" class="form-control" id="confirmPassword"
+                        placeholder="Confirm password"
+                        [ngClass]="{'is-invalid': cvForm.controls.confirm_password.dirty && cvForm.controls.confirm_password.invalid}">
+                    <div class="is-invalid text-danger mt-1"
+                        *ngIf="cvForm.controls.confirm_password.dirty && cvForm.controls.confirm_password.invalid">
+                        Confirm password is required!</div>
+                    <div class="is-invalid text-danger mt-1" *ngIf="cvForm.errors?.notSame">Confirm password does not
+                        match!!!</div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="skill_name" class="col-sm-3 col-form-label text-right">
+                    Skill<sup class="text-danger">*</sup>
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" formControlName="skill_name" class="form-control" id="skill_name"
+                        placeholder="Skill"
+                        [ngClass]="{'is-invalid': cvForm.controls.skill_name.dirty && cvForm.controls.skill_name.invalid}">
+                    <div class="is-invalid text-danger mt-1"
+                        *ngIf="cvForm.controls.skill_name.dirty && cvForm.controls.skill_name.invalid">Skill is
+                        required!</div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="rating" class="col-sm-3 col-form-label text-right">
+                    Rating<sup class="text-danger">*</sup>
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" formControlName="rating" class="form-control" id="rating" placeholder="Rating"
+                        [ngClass]="{'is-invalid': cvForm.controls.rating.dirty && cvForm.controls.rating.invalid}">
+                    <div class="is-invalid text-danger mt-1"
+                        *ngIf="cvForm.controls.rating.dirty && cvForm.controls.rating.invalid">Rating is required!</div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label text-right">
+                    Delivery Address<sup class="text-danger">*</sup>
+                </label>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="zipCode"></label>
+                            <input type="text" formControlName="zipCode" class="form-control" id="zipCode"
+                                placeholder="zipCode"
+                                >
+                            <!-- <div class="is-invalid text-danger mt-1"
+                                *ngIf="cvForm.controls.deliveryAddress.controls.zipCode.dirty && cvForm.controls.deliveryAddress.controls.zipCode.invalid">ZipCode is
+                                required!</div> -->
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-11 text-right">
+                    <button class="btn btn-sm btn-outline-dark mr-2">
+                        <i class="fa fa-envelope mr-2"></i> Initial Value
+                    </button>
+                    <button class="btn btn-sm btn-outline-dark mr-2" type="submit">
+                        <i class="fa fa-envelope mr-2"></i> Save
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger mr-2" type="reset">
+                        <i class="fa fa-envelope mr-2"></i> Reset
+                    </button>
+                    <!-- <button type="reset" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash mr-2"></i> Cancel</button> -->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

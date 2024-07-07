@@ -72,6 +72,12 @@ import { TooltipDirective } from './directives/tooltip.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BannerComponent } from './pages/banner/banner.component';
 import { SizeSwitcherDirective } from './directives/size-switcher.directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CounterfuckounterComponent } from './pages/counterfuckounter/counterfuckounter.component';
+import { RectFormsComponent } from './pages/rect-forms/rect-forms.component';
+import { TddFormsComponent } from './pages/tdd-forms/tdd-forms.component';
+import { AddressGroupComponent } from './pages/address-group/address-group.component';
+import { ChangebgDirective } from './directives/changebg.directive';
 @NgModule({
   declarations: [
     FileInputDirective,
@@ -143,8 +149,13 @@ import { SizeSwitcherDirective } from './directives/size-switcher.directive';
     TooltipDirective,
     BannerComponent,
     SizeSwitcherDirective,
+    CounterfuckounterComponent,
+    RectFormsComponent,
+    TddFormsComponent,
+    AddressGroupComponent,
+    ChangebgDirective,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule  ,BrowserAnimationsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule  ,BrowserAnimationsModule ,FormsModule,ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

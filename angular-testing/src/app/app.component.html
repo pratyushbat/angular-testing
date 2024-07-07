@@ -3,6 +3,25 @@
 <!-- <app-postasync id="2"></app-postasync> -->
 <div style="margin-top: 100px"></div>
 <div style="margin-top: 100px"></div>
+Address formGroup
+<form [formGroup]="form" >
+  <div class="form-field">
+    <label for="displayName"> Display Name</label>
+    <input type="text" formControlName="displayName" type="text" id="displayName">
+  </div>
+  <!-- <app-address-group [form]="form"></app-address-group> -->
+  <app-address-group [controlKey]="'deliveryAddress'"  [label]="'Delivery Address'"></app-address-group>
+  <app-address-group [controlKey]="'mailingAddress'"  [label]="'Mailing Address'"></app-address-group>
+  <button (click)="submit()">submit</button>
+
+<div appChangebg [color]="'yellow'" #a='changecolor'>okokko</div>
+<button (click)="a.changeColor('green')">Change Background</button>
+</form>
+<div style="margin-top: 100px"></div>
+<div style="margin-top: 100px"></div>
+<h2>Reactive forms deepo</h2>
+<app-rect-forms></app-rect-forms>
+<div style="margin-top: 100px"></div>
 <div style="margin-top: 100px" class="content" role="main">
   <!-- Highlight Card -->
   <!-- <div class="card highlight-card card-small">
@@ -107,7 +126,7 @@
   </div>
   <!-- accordian -->
   <div style="margin-top: 100px">
-    <app-accordian accordian>
+    <!-- <app-accordian accordian>
       <app-tab>
         <h1>Home </h1>
         <p>Page content</p>
@@ -124,7 +143,7 @@
         <h1>TEST </h1>
         <p>TEST content</p>
       </app-tab>
-    </app-accordian>
+    </app-accordian> -->
   </div>
 
   <div style="margin-top: 100px"></div>
@@ -370,15 +389,26 @@
        <div *ngIf="(names$| async) as n;"> {{n | json}}</div>
        tooltip[ top b edone]
        https://netbasal.com/angular-2-take-advantage-of-the-exportas-property-81374ce24d26
-<a  tooltip="I m a tooltip" #tooltip="tooltip">I m a link</a>
-<button (click)="tooltip.toggleTooltip()">Toggle tooltip </button>
+<!-- <a  tooltip="I m a tooltip" #tooltip="tooltip">I m a link</a> -->
+<!-- <button (click)="tooltip.toggleTooltip()">Toggle tooltip </button> -->
 
-<app-banner #bannercmp></app-banner>
+<app-banner #bannercmp #bnctx="bannerCtx"></app-banner>
+Qusetions :))))3 ways to toggle
 <button (click)="bannercmp?.toggle()">TOggle Banner Ref var</button>
 <button (click)="banner?.toggle()">TOggle Banner</button>
+<button (click)="bnctx?.toggle()">TOggle Banner using export</button>
 <!-- Line #2334 -->
 <input type="text" sizeSwitcher placeholder="anything" #switcher="sizeSwitcher">
 <button (click)="switcher?.toggle()">TOggle Banner</button>
+
+<h3>Two way binfing </h3>
+<!-- <input type="text" placeholder="anything" [(ngModel)]="inputValue"> -->
+<input type="text" placeholder="anything" [ngModel]="inputValue" (ngModelChange)="handleIt($event)">
+<div> Input Value :: {{inputValue}}</div>
+<input type="number" placeholder="counter value" [(ngModel)]="counterValue">
+<div> Counter Value :: {{counterValue}}</div>
+<counter-fuckounter [(startFrom)]="counterValue" ></counter-fuckounter>
+
 
     </div>
   </section>

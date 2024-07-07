@@ -1,0 +1,22 @@
+<div class="form-group row" formGroupName="{{controlKey}}">
+    <label class="col-sm-3 col-form-label text-right">
+        
+        {{label}}<sup class="text-danger">*</sup>
+    </label>
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="zipCode"></label>
+                <input type="text" formControlName="zipCode" class="form-control" id="zipCode"
+                    placeholder="zipCode"
+                    >            
+            </div>
+            <div class="col-sm-6">
+                <label for="street"></label>
+                <input type="text" formControlName="street" class="form-control" id="street"
+                    placeholder="street"
+                    >
+            </div>
+        </div>
+    </div>
+</div>

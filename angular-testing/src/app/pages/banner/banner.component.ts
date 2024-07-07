@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.scss'],
+  exportAs:'bannerCtx',
   animations: [
     trigger('openClose', [
       // ...

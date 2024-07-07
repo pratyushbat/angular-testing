@@ -19,6 +19,7 @@ import { ImgPreviewDirective } from './directives/imgpr.directive';
 import { User } from './directives/user.interface';
 import { BannerComponent } from './pages/banner/banner.component';
 import { SizeSwitcherDirective } from './directives/size-switcher.directive';
+import { Form, FormControl, FormGroup } from '@angular/forms';
 
 interface TreeNode {
   name: string;
@@ -111,6 +112,23 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   // euivalent of line 2334
   @ViewChild('switcher',{read:SizeSwitcherDirective}) switcher : SizeSwitcherDirective | undefined;
+
+  inputValue:string='5';
+  counterValue:number=5;
+  handleIt(ev:any){
+this.inputValue=ev;
+  }
+
+
+  // form submit reusable
+  form:FormGroup=new FormGroup({
+    displayName:new FormControl('')    
+  });
+  submit(){
+    console.log(this.form.value)
+  }
+  
+  // form submit reusable
 
 
   addName(name: string): void {
