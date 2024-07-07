@@ -17,6 +17,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, count, from, of } from 'rxjs';
 import { ImgPreviewDirective } from './directives/imgpr.directive';
 import { User } from './directives/user.interface';
+import { BannerComponent } from './pages/banner/banner.component';
+import { SizeSwitcherDirective } from './directives/size-switcher.directive';
 
 interface TreeNode {
   name: string;
@@ -98,11 +100,18 @@ export class AppComponent implements AfterViewInit, OnInit {
   twitterLink = 'http://www.twitter.com/rakesh';
   emailone: string = 'pratyush@gmail.com';
 
-  names = ['Ronaldo', 'Ajit', 'Sagar', 'Anusha', 'Aniket', 'Pankaj', 'Amitabh'];
-
+  names:string[] = ['Ronaldo', 'Ajit', 'Sagar', 'Anusha', 'Aniket', 'Pankaj', 'Amitabh'];
+  names$ :Promise<string[]>= Promise.resolve(this.names)
   filterKey!: string;
 
   sortKey: 'asc' | 'desc' | string = 'asc';
+
+  @ViewChild(BannerComponent) banner : BannerComponent | undefined;
+
+
+  // euivalent of line 2334
+  @ViewChild('switcher',{read:SizeSwitcherDirective}) switcher : SizeSwitcherDirective | undefined;
+
 
   addName(name: string): void {
     if (!name || !name?.trim().length) {
@@ -650,4 +659,8 @@ function getTripData(): any {
   setTimeout(() => {
     return of(tr);
   }, 3000);
+
+
+ 
+
 }

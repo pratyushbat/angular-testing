@@ -1,0 +1,7 @@
+<h2>Where to watch angfular tutorials?</h2>
+<div [@openClose]="moreInfo ? 'open' : 'closed'" class="open-close-container">
+<h2  [@visblebn]="moreInfo ? 'show' : 'hide'">ok google</h2>
+    <img  *ngIf="moreInfo" src="https://html.com/wp-content/uploads/flamingo.webp" alt="" width="200px" height="150px">
+</div>
+<button (click)="moreInfo=!moreInfo">{{moreInfo? 'Hide':'Show More'}}</button>
+<p>banner works!</p>

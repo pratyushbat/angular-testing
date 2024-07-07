@@ -67,6 +67,11 @@ import { FileinputwithexportasDirective } from './directives/fileinputwithexport
 import { AppdirectivewithexportasComponent } from './pages/appdirectivewithexportas/appdirectivewithexportas.component';
 import { TrimlengthDirective } from './directives/trimlength.directive';
 import { UppercaseDirective } from './directives/uppercase.directive';
+import { PaintDirective } from './directives/paint.directive';
+import { TooltipDirective } from './directives/tooltip.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BannerComponent } from './pages/banner/banner.component';
+import { SizeSwitcherDirective } from './directives/size-switcher.directive';
 @NgModule({
   declarations: [
     FileInputDirective,
@@ -134,8 +139,12 @@ import { UppercaseDirective } from './directives/uppercase.directive';
     AppdirectivewithexportasComponent,
     TrimlengthDirective,
     UppercaseDirective,
+    PaintDirective,
+    TooltipDirective,
+    BannerComponent,
+    SizeSwitcherDirective,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule  ,BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

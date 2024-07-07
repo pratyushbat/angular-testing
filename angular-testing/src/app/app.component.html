@@ -107,7 +107,7 @@
   </div>
   <!-- accordian -->
   <div style="margin-top: 100px">
-    <!-- <app-accordian>
+    <app-accordian accordian>
       <app-tab>
         <h1>Home </h1>
         <p>Page content</p>
@@ -124,7 +124,7 @@
         <h1>TEST </h1>
         <p>TEST content</p>
       </app-tab>
-    </app-accordian> -->
+    </app-accordian>
   </div>
 
   <div style="margin-top: 100px"></div>
@@ -353,6 +353,34 @@
         <button (click)="(0)">Trigger</button>
       </div>
     </div>
+
+
+    <!--     <h1 *paint>Paint</h1> is equal to
+    <ng-template paint> <h1 >Paint</h1>    <ng-template >
+    -->
+  </section>
+  <section>
+    <div class="row">
+      <h1>structural direcrtive rendered as comment</h1>
+      <h2 *paint="name;  let item,let n=name,let lc=location;  xCoord:2 as x ,yCoord:8 as y">Paint from .Hello i am {{n}} from {{lc}}  {{x}} {{y}}</h2>
+       <!-- <ng-template paint let-data let-n="name" let-loc="location">
+        Paint from .Hello i am {{n}} from {{loc}}
+       </ng-template> -->
+    
+       <div *ngIf="(names$| async) as n;"> {{n | json}}</div>
+       tooltip[ top b edone]
+       https://netbasal.com/angular-2-take-advantage-of-the-exportas-property-81374ce24d26
+<a  tooltip="I m a tooltip" #tooltip="tooltip">I m a link</a>
+<button (click)="tooltip.toggleTooltip()">Toggle tooltip </button>
+
+<app-banner #bannercmp></app-banner>
+<button (click)="bannercmp?.toggle()">TOggle Banner Ref var</button>
+<button (click)="banner?.toggle()">TOggle Banner</button>
+<!-- Line #2334 -->
+<input type="text" sizeSwitcher placeholder="anything" #switcher="sizeSwitcher">
+<button (click)="switcher?.toggle()">TOggle Banner</button>
+
+    </div>
   </section>
 
   <footer>
@@ -365,5 +393,6 @@
     <ul id="app">
       <li>HTML</li>
     </ul> -->
+
   </footer>
 </div>
