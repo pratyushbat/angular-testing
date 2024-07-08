@@ -78,6 +78,10 @@ import { RectFormsComponent } from './pages/rect-forms/rect-forms.component';
 import { TddFormsComponent } from './pages/tdd-forms/tdd-forms.component';
 import { AddressGroupComponent } from './pages/address-group/address-group.component';
 import { ChangebgDirective } from './directives/changebg.directive';
+import { CountryComponent } from './pages/country/country.component';
+import { CountrySelectedComponent } from './pages/country-selected/country-selected.component';
+import { CountryFlagComponent } from './pages/country-flag/country-flag.component';
+import { BannercComponent } from './pages/bannerc/bannerc.component';
 @NgModule({
   declarations: [
     FileInputDirective,
@@ -154,6 +158,10 @@ import { ChangebgDirective } from './directives/changebg.directive';
     TddFormsComponent,
     AddressGroupComponent,
     ChangebgDirective,
+    CountryComponent,
+    CountrySelectedComponent,
+    CountryFlagComponent,
+    BannercComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule  ,BrowserAnimationsModule ,FormsModule,ReactiveFormsModule],
   providers: [],

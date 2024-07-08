@@ -1,9 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['./clock']">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['./async-clock']">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['./app-dir']">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" [routerLink]="['./dialogue']">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <router-outlet></router-outlet>
 
 <!-- <app-postasync id="2"></app-postasync> -->
-<div style="margin-top: 100px"></div>
-<div style="margin-top: 100px"></div>
-Address formGroup
+<div>
+  https://dev.to/this-is-angular/compound-components-in-angular-l7m
+  <app-country>
+    <app-country-selected></app-country-selected>
+    <app-country-flag></app-country-flag>
+    <app-country-flag></app-country-flag>
+    <app-country-flag></app-country-flag>
+    <app-banner></app-banner>
+  </app-country>
+
+
+<h2>Address </h2>
 <form [formGroup]="form" >
   <div class="form-field">
     <label for="displayName"> Display Name</label>
@@ -17,12 +49,13 @@ Address formGroup
 <div appChangebg [color]="'yellow'" #a='changecolor'>okokko</div>
 <button (click)="a.changeColor('green')">Change Background</button>
 </form>
-<div style="margin-top: 100px"></div>
-<div style="margin-top: 100px"></div>
+</div>
+<div style="margin-top: 30px"></div>
+
 <h2>Reactive forms deepo</h2>
 <app-rect-forms></app-rect-forms>
-<div style="margin-top: 100px"></div>
-<div style="margin-top: 100px" class="content" role="main">
+
+<div style="margin-top: 30px" class="content" role="main">
   <!-- Highlight Card -->
   <!-- <div class="card highlight-card card-small">
     <span>{{ title }} app is running!</span>
@@ -117,7 +150,7 @@ Address formGroup
   <!-- department -->
 
   <!-- movie -->
-  <div style="margin-top: 100px">
+  <div style="margin-top: 10px">
     <!-- <app-marvel>
       <app-movie  [movie]="movie" >
 
@@ -125,7 +158,7 @@ Address formGroup
     </app-marvel> -->
   </div>
   <!-- accordian -->
-  <div style="margin-top: 100px">
+  <div style="margin-top: 10px">
     <!-- <app-accordian accordian>
       <app-tab>
         <h1>Home </h1>
@@ -146,7 +179,7 @@ Address formGroup
     </app-accordian> -->
   </div>
 
-  <div style="margin-top: 100px"></div>
+  <div style="margin-top: 10px"></div>
   <!-- <ul>
     <li *ngFor="let tech1  of techList">
       {{tech1.name}}
@@ -161,7 +194,7 @@ Address formGroup
   <h1>Node crated using just one div</h1>
   <div #nodesTemplate></div>
 
-  <div style="margin-top: 100px"></div>
+  <div style="margin-top: 10px"></div>
 
   <input type="file" #inp />
   <h1>hello</h1>
@@ -169,18 +202,18 @@ Address formGroup
   using DI
   <input type="file" fileDIInput />
 
-  <div style="margin-top: 100px"></div>
+  <div style="margin-top: 10px"></div>
 
   <app-tutorial></app-tutorial>
-  <div style="margin-top: 100px"></div>
+  <div style="margin-top: 10px"></div>
 
   <!-- <app-hello></app-hello> -->
-  <div style="margin-top: 100px"></div>
+  <div style="margin-top: 10px"></div>
 
   <!-- <app-appc></app-appc> -->
-  <div style="margin-top: 100px"></div>
+  <div style="margin-top: 10px"></div>
   <!-- <app-tree-node *ngFor="let node of nodes" [node]="node"></app-tree-node> -->
-  <div style="margin-top: 100px"></div>
+  <div style="margin-top: 10px"></div>
   <!-- <section>
     <div>
       <app-photo-card></app-photo-card>
