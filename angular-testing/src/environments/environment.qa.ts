@@ -1,0 +1,1 @@
+export const environment={production:true ,api:'https://qa.api.com'};

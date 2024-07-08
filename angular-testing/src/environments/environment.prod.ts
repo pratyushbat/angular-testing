@@ -1,0 +1,1 @@
+export const environment={production:true,api:'https://prod.api.com'};
