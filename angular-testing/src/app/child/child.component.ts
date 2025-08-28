@@ -7,11 +7,21 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./child.component.scss']
 })
 export class ChildComponent {
+  textSms='grren';
   message?:string;
 
 constructor(private data:DataService){
-  this.data.currentMessage.subscribe(message=> this.message=message)
+ 
 }
 
-ngOnInit(){}
+ngOnInit(){
+
+   this.data.currentMessage.subscribe( (message ) => {
+   this.message=message;
+  })
+}
+
+newMessage(){
+  this.data.changeMessage("hello from child component")
+}
 }

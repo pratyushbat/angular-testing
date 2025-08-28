@@ -1,2 +1,12 @@
-<p>parent works!</p>
+<p>parent works! {{message}} and texsms form child is {{textSms}}</p>
 <child></child>
+
+<!-- data sharing -->
+
+parent => child  - via Input()
+
+child => parent - via Output() + EventEmitter
+
+child => parent - via ViewChild()
+
+Any => Any - via a shared service
