@@ -5,9 +5,11 @@ import { ClockasyncComponent } from './pages/clockasync/clockasync.component';
 import { AppdirecitiveComponent } from './pages/appdirecitive/appdirecitive.component';
 import { AuthGuard } from './utility/app.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ParentComponent } from './parent/parent.component';
 
 const routes: Routes = [
   { path: 'clock', component: ClockComponent },
+  { path: 'parent', component: ParentComponent },
   { path: 'async-clock', component: ClockasyncComponent,canActivate: [AuthGuard] },
   { path: 'app-dir', component: AppdirecitiveComponent ,canActivate: [AuthGuard]},
   { path: 'profile', component: ProfileComponent ,canActivate: [AuthGuard]},

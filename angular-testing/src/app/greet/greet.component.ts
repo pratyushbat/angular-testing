@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-greet',
@@ -8,4 +9,6 @@ import { Component, Input } from '@angular/core';
 export class GreetComponent {
 @Input()
 message!:string;
+
+
 }

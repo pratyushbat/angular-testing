@@ -85,6 +85,8 @@ import { BannercComponent } from './pages/bannerc/bannerc.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializeKeycloak } from './utility/app.init';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ChildComponent } from './child/child.component';
+import { ParentComponent } from './parent/parent.component';
 @NgModule({
   declarations: [
     FileInputDirective,
@@ -166,14 +168,21 @@ import { ProfileComponent } from './pages/profile/profile.component';
     CountryFlagComponent,
     BannercComponent,
     ProfileComponent,
+    ChildComponent,
+    ParentComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule  ,BrowserAnimationsModule ,FormsModule,ReactiveFormsModule,KeycloakAngularModule],
-  providers: [{
-    provide: APP_INITIALIZER,
-    useFactory: initializeKeycloak,
-    multi: true,
-    deps: [KeycloakService]
-  }],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule  ,BrowserAnimationsModule ,FormsModule,ReactiveFormsModule
+    // ,KeycloakAngularModule
+  ],
+  providers: [
+
+  //   {
+  //   provide: APP_INITIALIZER,
+  //   useFactory: initializeKeycloak,
+  //   multi: true,
+  //   deps: [KeycloakService]
+  // }
+],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
