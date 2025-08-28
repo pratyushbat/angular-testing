@@ -10,6 +10,7 @@ import { ParentComponent } from './parent/parent.component';
 const routes: Routes = [
   { path: 'clock', component: ClockComponent },
   { path: 'parent', component: ParentComponent },
+  { path: 'lazy', loadChildren: () => import('./lazy.module').then(m => m.LazyModule)  },
   { path: 'async-clock', component: ClockasyncComponent,canActivate: [AuthGuard] },
   { path: 'app-dir', component: AppdirecitiveComponent ,canActivate: [AuthGuard]},
   { path: 'profile', component: ProfileComponent ,canActivate: [AuthGuard]},
